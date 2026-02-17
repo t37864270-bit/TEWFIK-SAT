@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOUFIK SAT VIP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --main: #2c3e50; --gold: #f39c12; --bg: #f0f2f5; --card: #ffffff; }
+        * { box-sizing: border-box; font-family: 'Cairo', sans-serif; margin: 0; padding: 0; transition: 0.3s; }
+        body { background: var(--bg); padding-bottom: 100px; }
+        #loginOverlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--main); z-index: 9999; display: flex; align-items: center; justify-content: center; color: white; }
+        .smart-box { background: rgba(255,255,255,0.1); padding: 40px; border-radius: 30px; border: 2px solid var(--gold); text-align: center; }
+        .fingerprint { font-size: 80px; color: var(--gold); cursor: pointer; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+        header { background: var(--main); padding: 15px; border-bottom: 3px solid var(--gold); display: flex; justify-content: space-between; align-items: center; color: white; position: sticky; top: 0; z-index: 1000; }
+        .search-area { padding: 15px; }
+        #searchInput { width: 100%; padding: 12px; border-radius: 20px; border: 1px solid #ddd; text-align: center; outline: none; }
+        .title { font-size: 14px; margin: 20px 15px 10px; color: var(--main); border-right: 4px solid var(--gold); padding-right: 10px; font-weight: 900; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 0 15px; }
+        .card { background: var(--card); border-radius: 15px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: hidden; }
+        .card i, .card img { height: 50px; width: 50px; object-fit: contain; margin: 15px auto 5px; display: block; font-size: 30px; }
+        .card h3 { font-size: 10px; margin-bottom: 10px; color: var(--main); }
+        .btn { display: block; background: var(--main); color: white; text-decoration: none; padding: 8px; font-size: 10px; font-weight: bold; }
+        .pay-footer { margin: 30px 15px; padding: 20px; background: white; border-radius: 20px; text-align: center; border: 1px solid #ddd; }
+        .pay-flex { display: flex; justify-content: center; gap: 15px; margin-top: 10px; }
+        .pay-flex img { height: 30px; border-radius: 5px; }
+        .social-bar { position: fixed; bottom: 0; width: 100%; background: var(--main); display: flex; justify-content: space-around; padding: 15px; border-top: 3px solid var(--gold); }
+        .social-bar a { color: white; font-size: 22px; }
+        .whatsapp-float { position: fixed; bottom: 80px; right: 20px; background: #25D366; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-decoration: none; z-index: 999; }
+    </style>
+</head>
+<body>
+    <div id="loginOverlay"><div class="smart-box"><h1>TOUFIK SAT</h1><p style="margin:15px 0">المس البصمة للدخول</p><div class="fingerprint" onclick="smartLogin()"><i class="fas fa-fingerprint"></i></div></div></div>
+    <div id="main" style="display:none;">
+        <header>
+            <div id="clock">00:00:00</div>
+            <select onchange="changeLang(this.value)" style="background:var(--gold); border:none; border-radius:5px; color:white; font-size:10px; padding:2px 5px;">
+                <option value="ar">AR</option>
+                <option value="fr">FR</option>
+                <option value="en">EN</option>
+            </select>
+            <div style="font-weight:900;">TOUFIK <span style="color:var(--gold)">SAT</span></div>
+        </header>
+
+        <div class="search-area"><input type="text" id="searchInput" onkeyup="search()" placeholder="🔍 ابحث هنا..."></div>
+        
+        <div class="title" id="t1">الاشتراكات والترفيه</div>
+        <div class="grid">
+            <div class="card"><i class="fab fa-netflix" style="color:#e50914"></i><h3>Netflix</h3><a href="#" class="btn">طلب</a></div>
+            <div class="card"><i class="fab fa-google" style="color:#4285F4"></i><h3>Google TV</h3><a href="#" class="btn">دخول</a></div>
+            <div class="card"><i class="fas fa-film" style="color:#3498db"></i><h3>الأفلام</h3><a href="#" class="btn">مشاهدة</a></div>
+            <div class="card"><i class="fas fa-child" style="color:#e91e63"></i><h3>الأطفال</h3><a href="#" class="btn">دخول</a></div>
+        </div>
+
+        <div class="title" id="t2">أجهزة Géant</div>
+        <div class="grid">
+            <div class="card"><img src="https://img.icons8.com/fluency/512/satellite-dish.png"><h3>RS8 Evo</h3><a href="rs8_evo.bin" download class="btn">تحديث</a></div>
+            <div class="card"><img src="https://img.icons8.com/fluency/512/satellite-dish.png"><h3>2500 Hybride</h3><a href="hybride_2500.bin" download class="btn">تحديث</a></div>
+            <div class="card"><img src="https://img.icons8.com/fluency/512/satellite-dish.png"><h3>Starsat</h3><a href="starsat.bin" download class="btn">تحديث</a></div>
+        </div>
+
+        <div class="title" id="t3">ملفات القنوات</div>
+        <div class="grid">
+            <div class="card"><img src="https://img.icons8.com/color/512/middle-east.png"><h3>Nilesat</h3><a href="nilesat.sdx" download class="btn">تحميل</a></div>
+            <div class="card"><img src="https://img.icons8.com/color/512/european-union-flag.png"><h3>Astra</h3><a href="astra.sdx" download class="btn">تحميل</a></div>
+            <div class="card"><i class="fas fa-tv" style="color:var(--gold)"></i><h3>IPTV</h3><a href="playlist.m3u" download class="btn">تحميل</a></div>
+        </div>
+
+        <div class="pay-footer">
+            <h5 id="pTitle">💳 طرق الدفع المقبولة</h5>
+            <div class="pay-flex">
+                <img src="https://vps.isat.dz/assets/img/cib.png" title="الذهبية">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Baridimob.png" title="بريدي موب">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/1200px-PayPal.svg.png">
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/213" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+    <div class="social-bar">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-telegram-plane"></i></a>
+        <a href="#"><i class="fas fa-info-circle"></i></a>
+    </div>
+
+    <script>
+        function smartLogin() { document.getElementById('loginOverlay').style.display='none'; document.getElementById('main').style.display='block'; }
+        function updateClock() { document.getElementById('clock').innerText = new Date().toLocaleTimeString(); }
+        setInterval(updateClock, 1000); updateClock();
+        function search() {
+            let v = document.getElementById('searchInput').value.toLowerCase();
+            document.querySelectorAll('.card').forEach(c => { c.style.display = c.innerText.toLowerCase().includes(v) ? "" : "none"; });
+        }
+        function changeLang(l) {
+            document.dir = (l === 'ar') ? 'rtl' : 'ltr';
+            document.getElementById('t1').innerText = (l === 'ar') ? 'الاشتراكات والترفيه' : (l === 'fr' ? 'Abonnements' : 'Subscriptions');
+            document.getElementById('pTitle').innerText = (l === 'ar') ? '💳 طرق الدفع المقبولة' : (l === 'fr' ? '💳 Paiement' : '💳 Payment');
+        }
+    </script>
+</body>
+</html>
