@@ -3,24 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Tewfik Sat 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { background: #000; color: #00d4ff; font-family: sans-serif; text-align: center; padding: 50px; }
-        .box { border: 2px solid #00d4ff; display: inline-block; padding: 20px; border-radius: 15px; box-shadow: 0 0 20px #00d4ff; }
-        table { width: 100%; margin-top: 20px; border-collapse: collapse; }
-        th, td { border: 1px solid #00d4ff; padding: 10px; }
-        .awareness { color: red; font-weight: bold; margin-bottom: 10px; }
+        body { background: #0a0f18; color: #00d4ff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; padding: 20px; }
+        .container { border: 2px solid #00d4ff; display: inline-block; padding: 30px; border-radius: 20px; background: rgba(0, 212, 255, 0.05); box-shadow: 0 0 30px rgba(0, 212, 255, 0.2); max-width: 90%; }
+        h1 { font-size: 2.5em; text-shadow: 2px 2px 10px #00d4ff; }
+        .awareness { background: red; color: white; padding: 10px; border-radius: 10px; font-weight: bold; margin-bottom: 20px; animation: blink 1s infinite; }
+        @keyframes blink { 50% { opacity: 0.5; } }
+        table { width: 100%; margin-top: 20px; border-collapse: collapse; background: #161b22; border-radius: 10px; overflow: hidden; }
+        th, td { border: 1px solid #30363d; padding: 15px; font-size: 1.1em; }
+        th { background: #00d4ff; color: #000; }
+        .icon { font-size: 1.5em; margin: 10px; color: #ffca28; }
     </style>
 </head>
 <body>
-    <div class="box">
-        <div class="awareness">الجبهة الداخلية واعية 100%</div>
-        <h1>📡 Tewfik Sat 2026 📡</h1>
+    <div class="container">
+        <div class="awareness"><i class="fas fa-shield-halved"></i> الجبهة الداخلية واعية 100%</div>
+        <h1><i class="fas fa-satellite-dish"></i> TEWFIK-SAT 2026</h1>
+        
+        <div>
+            <i class="fas fa-tv icon"></i>
+            <i class="fas fa-microchip icon"></i>
+            <i class="fas fa-wifi icon"></i>
+        </div>
+
         <table>
-            <tr><th>القمر</th><th>التردد</th><th>الاستقطاب</th></tr>
-            <tr><td>Nilesat</td><td>11747</td><td>V</td></tr>
-            <tr><td>Astra</td><td>11856</td><td>V</td></tr>
-            <tr><td>Hotbird</td><td>11137</td><td>H</td></tr>
+            <tr>
+                <th><i class="fas fa-globe"></i> القمر</th>
+                <th><i class="fas fa-signal"></i> التردد</th>
+                <th><i class="fas fa-arrows-up-down"></i> الاستقطاب</th>
+            </tr>
+            <tr><td>Nilesat 7W</td><td>11747</td><td>عمودي (V)</td></tr>
+            <tr><td>Astra 19E</td><td>11856</td><td>عمودي (V)</td></tr>
+            <tr><td>Hotbird 13E</td><td>11137</td><td>أفقي (H)</td></tr>
         </table>
+        
+        <p style="margin-top:20px;">تم التحديث بواسطة تابلت Samsung A9</p>
     </div>
 </body>
 </html>
