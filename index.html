@@ -2,43 +2,68 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>Tewfik Sat 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tewfik Sat Elite</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { background: #0a0f18; color: #00d4ff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; padding: 20px; }
-        .container { border: 2px solid #00d4ff; display: inline-block; padding: 30px; border-radius: 20px; background: rgba(0, 212, 255, 0.05); box-shadow: 0 0 30px rgba(0, 212, 255, 0.2); max-width: 90%; }
-        h1 { font-size: 2.5em; text-shadow: 2px 2px 10px #00d4ff; }
-        .awareness { background: red; color: white; padding: 10px; border-radius: 10px; font-weight: bold; margin-bottom: 20px; animation: blink 1s infinite; }
-        @keyframes blink { 50% { opacity: 0.5; } }
-        table { width: 100%; margin-top: 20px; border-collapse: collapse; background: #161b22; border-radius: 10px; overflow: hidden; }
-        th, td { border: 1px solid #30363d; padding: 15px; font-size: 1.1em; }
-        th { background: #00d4ff; color: #000; }
-        .icon { font-size: 1.5em; margin: 10px; color: #ffca28; }
+        body { background: #050a12; color: white; font-family: sans-serif; text-align: center; margin: 0; padding: 20px; }
+        .header { background: linear-gradient(90deg, #e50914, #00d4ff); padding: 15px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .awareness { background: #ff0000; color: white; padding: 5px; font-weight: bold; border-radius: 5px; margin-top: 5px; }
+        
+        /* قسم الأيقونات والخدمات */
+        .apps-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 30px 0; }
+        .app-card { background: #1a222d; padding: 20px; border-radius: 20px; width: 100px; transition: 0.3s; cursor: pointer; border: 1px solid #333; }
+        .app-card:hover { transform: scale(1.1); border-color: #00d4ff; box-shadow: 0 0 20px #00d4ff; }
+        .app-card i { font-size: 40px; margin-bottom: 10px; }
+        
+        .netflix { color: #e50914; } /* لون نتفليكس */
+        .kids { color: #ffeb3b; }    /* لون الأطفال */
+        .sat { color: #00d4ff; }     /* لون الستلايت */
+        
+        table { width: 100%; max-width: 600px; margin: 20px auto; border-collapse: collapse; background: #111; border-radius: 10px; overflow: hidden; }
+        th, td { padding: 15px; border: 1px solid #222; }
+        th { background: #333; color: #00d4ff; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="awareness"><i class="fas fa-shield-halved"></i> الجبهة الداخلية واعية 100%</div>
-        <h1><i class="fas fa-satellite-dish"></i> TEWFIK-SAT 2026</h1>
-        
-        <div>
-            <i class="fas fa-tv icon"></i>
-            <i class="fas fa-microchip icon"></i>
-            <i class="fas fa-wifi icon"></i>
+
+    <div class="header">
+        <h1>📡 TEWFIK-SAT 2026</h1>
+        <div class="awareness">الجبهة الداخلية واعية 100%</div>
+    </div>
+
+    <h3><i class="fas fa-th-large"></i> التطبيقات والخدمات</h3>
+    
+    <div class="apps-container">
+        <div class="app-card">
+            <i class="fab fa-netflix netflix"></i>
+            <div>Netflix</div>
         </div>
 
-        <table>
-            <tr>
-                <th><i class="fas fa-globe"></i> القمر</th>
-                <th><i class="fas fa-signal"></i> التردد</th>
-                <th><i class="fas fa-arrows-up-down"></i> الاستقطاب</th>
-            </tr>
-            <tr><td>Nilesat 7W</td><td>11747</td><td>عمودي (V)</td></tr>
-            <tr><td>Astra 19E</td><td>11856</td><td>عمودي (V)</td></tr>
-            <tr><td>Hotbird 13E</td><td>11137</td><td>أفقي (H)</td></tr>
-        </table>
-        
-        <p style="margin-top:20px;">تم التحديث بواسطة تابلت Samsung A9</p>
+        <div class="app-card">
+            <i class="fas fa-child kids"></i>
+            <div>KIDS</div>
+        </div>
+
+        <div class="app-card">
+            <i class="fab fa-youtube" style="color: #ff0000;"></i>
+            <div>YouTube</div>
+        </div>
+
+        <div class="app-card">
+            <i class="fas fa-server sat"></i>
+            <div>Server</div>
+        </div>
     </div>
+
+    <h3><i class="fas fa-list"></i> جدول الترددات المحدث</h3>
+    <table>
+        <tr><th>القمر</th><th>التردد</th></tr>
+        <tr><td>Nilesat</td><td>11747 V</td></tr>
+        <tr><td>Astra</td><td>11856 V</td></tr>
+    </table>
+
+    <p>بواسطة: Samsung A9 📱</p>
+
 </body>
 </html>
