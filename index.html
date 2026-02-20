@@ -12,29 +12,28 @@
         .ticker { display: inline-block; animation: ticker 40s linear infinite; font-weight: bold; }
         @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
         header { background: #000; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #27ae60; position: sticky; top: 0; z-index: 1000; }
-        .dz-flag { width: 45px; filter: drop-shadow(0 0 5px #fff); }
-        #clock { color: var(--primary); font-weight: bold; font-size: 1.3em; font-family: monospace; }
-        .social-icons a { color: white; margin: 0 10px; font-size: 1.5em; transition: 0.3s; }
+        .dz-flag { width: 45px; }
+        #clock { color: var(--primary); font-weight: bold; font-size: 1.3em; }
         .search-container { padding: 30px 5%; text-align: center; }
-        .search-box { width: 100%; max-width: 600px; padding: 15px 25px; border-radius: 30px; border: 2px solid var(--primary); background: #1a1a1a; color: white; outline: none; }
+        .search-box { width: 100%; max-width: 600px; padding: 15px; border-radius: 30px; border: 2px solid var(--primary); background: #1a1a1a; color: white; outline: none; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; padding: 0 5% 40px; }
         .card { background: var(--card); padding: 20px; border-radius: 15px; border: 1px solid #333; }
         .card h3 { color: #27ae60; border-bottom: 3px solid var(--primary); padding-bottom: 10px; text-align: center; margin-bottom: 15px; }
-        .device-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 10px; border-bottom: 1px solid #222; cursor: pointer; }
-        .device-item:hover { background: #222; color: var(--primary); border-radius: 8px; }
+        .device-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #222; cursor: pointer; }
+        .device-item:hover { background: #222; color: var(--primary); }
         .dot { width: 12px; height: 12px; border-radius: 50%; }
         .green { background: var(--green); box-shadow: 0 0 8px var(--green); }
         .red { background: var(--red); }
         .sat-section { background: #000; margin: 20px 5%; padding: 30px; border-radius: 20px; border: 2px solid #27ae60; text-align: center; }
-        .sat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin-top: 20px; }
-        .btn-sat { background: linear-gradient(45deg, #2980b9, #3498db); color: white; padding: 12px; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 0.85em; transition: 0.3s; }
-        footer { background: #000; padding: 40px; text-align: center; border-top: 5px solid #27ae60; }
+        .sat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-top: 20px; }
+        .btn-sat { background: #2980b9; color: white; padding: 10px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 0.8em; }
+        footer { background: #000; padding: 30px; text-align: center; border-top: 5px solid #27ae60; }
     </style>
 </head>
 <body>
 
 <div class="ticker-wrap">
-    <div class="ticker">📡 تحديثات فيفري 2026: باقات 4K تعمل بثبات .. تحميل ملفات القنوات للأقمار الثمانية حصرياً على Toufik Sat .. الجبهة الداخلية الجزائرية واعية 100% 📡</div>
+    <div class="ticker">📡 تحديثات فيفري 2026: أجهزة 4K و Forever تعمل بثبات .. تحميل ملفات القنوات حصرياً على Toufik Sat .. الجبهة الداخلية الجزائرية واعية 100% 📡</div>
 </div>
 
 <header>
@@ -42,21 +41,147 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg" class="dz-flag">
         <div id="clock">00:00:00</div>
     </div>
-    <div class="logo"><h2>TECH NEWS ARABIC</h2></div>
+    <h2>TECH NEWS ARABIC</h2>
     <div class="social-icons">
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
+        <i class="fab fa-facebook" style="font-size:1.5em; margin-left:10px;"></i>
+        <i class="fab fa-youtube" style="font-size:1.5em;"></i>
     </div>
 </header>
 
 <div class="search-container">
-    <input type="text" id="searchInput" class="search-box" onkeyup="filterDevices()" placeholder="ابحث عن جهازك (90 جهاز متاح)...">
+    <input type="text" id="searchInput" class="search-box" onkeyup="filter()" placeholder="ابحث عن جهازك (Géant, Starsat, Raylan...)...">
 </div>
 
-<div class="grid" id="mainGrid"></div>
+<div class="grid">
+    <div class="card">
+        <h3>Géant</h3>
+        <div class="list">
+            <div class="device-item"><span>GN-2500 HD Hybrid</span><span class="dot green"></span></div>
+            <div class="device-item"><span>GN-RS8 Evo</span><span class="dot green"></span></div>
+            <div class="device-item"><span>GN-750 EVO 4K</span><span class="dot green"></span></div>
+            <div class="device-item"><span>GN-MAMO Plus</span><span class="dot green"></span></div>
+            <div class="device-item"><span>GN-OTT 750 Allure</span><span class="dot red"></span></div>
+            <div class="device-item"><span>GN-CX300 Mini Hybrid</span><span class="dot green"></span></div>
+            <div class="device-item"><span>GN-M4 Mini</span><span class="dot green"></span></div>
+            <div class="device-item"><span>GN-2000 HD Hybrid</span><span class="dot green"></span></div>
+            <div class="device-item"><span>GN-RS8 HD Plus</span><span class="dot red"></span></div>
+            <div class="device-item"><span>GN-X006 HD Plus</span><span class="dot green"></span></div>
+            <div class="device-item"><span>GN-RS4 Mini HD</span><span class="dot red"></span></div>
+            <div class="device-item"><span>GN-OTT 950</span><span class="dot red"></span></div>
+            <div class="device-item"><span>GN-2500 PLUS</span><span class="dot red"></span></div>
+            <div class="device-item"><span>GN-X3 PLUS</span><span class="dot green"></span></div>
+            <div class="device-item"><span>GN-6700 Platinum</span><span class="dot green"></span></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Starsat</h3>
+        <div class="list">
+            <div class="device-item"><span>SR-2000 Extreme</span><span class="dot green"></span></div>
+            <div class="device-item"><span>SR-T14 Extreme</span><span class="dot green"></span></div>
+            <div class="device-item"><span>SR-4080 HD</span><span class="dot green"></span></div>
+            <div class="device-item"><span>SR-X1 Pro 4K</span><span class="dot red"></span></div>
+            <div class="device-item"><span>SR-200 HD 4K</span><span class="dot green"></span></div>
+            <div class="device-item"><span>SR-90000 Extreme</span><span class="dot green"></span></div>
+            <div class="device-item"><span>SR-7060 HD</span><span class="dot green"></span></div>
+            <div class="device-item"><span>SR-2020 Super</span><span class="dot red"></span></div>
+            <div class="device-item"><span>SR-488 HD</span><span class="dot green"></span></div>
+            <div class="device-item"><span>SR-9990 HD</span><span class="dot red"></span></div>
+            <div class="device-item"><span>SR-2030 HD</span><span class="dot green"></span></div>
+            <div class="device-item"><span>SR-X7 Extreme</span><span class="dot green"></span></div>
+            <div class="device-item"><span>SR-T13 Extreme</span><span class="dot red"></span></div>
+            <div class="device-item"><span>SR-6969 HD</span><span class="dot red"></span></div>
+            <div class="device-item"><span>SR-X3 PRO</span><span class="dot green"></span></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Raylan</h3>
+        <div class="list">
+            <div class="device-item"><span>RS-100 Pro</span><span class="dot green"></span></div>
+            <div class="device-item"><span>R-600 HD</span><span class="dot red"></span></div>
+            <div class="device-item"><span>Magic 4K</span><span class="dot green"></span></div>
+            <div class="device-item"><span>NANO</span><span class="dot green"></span></div>
+            <div class="device-item"><span>R-MAX</span><span class="dot green"></span></div>
+            <div class="device-item"><span>Falcon</span><span class="dot red"></span></div>
+            <div class="device-item"><span>R-700</span><span class="dot green"></span></div>
+            <div class="device-item"><span>X100</span><span class="dot green"></span></div>
+            <div class="device-item"><span>R-PRO</span><span class="dot red"></span></div>
+            <div class="device-item"><span>S-VOGUE</span><span class="dot green"></span></div>
+            <div class="device-item"><span>R-Mini</span><span class="dot green"></span></div>
+            <div class="device-item"><span>CRYSTAL</span><span class="dot red"></span></div>
+            <div class="device-item"><span>GOLD</span><span class="dot green"></span></div>
+            <div class="device-item"><span>SMART</span><span class="dot red"></span></div>
+            <div class="device-item"><span>R-200</span><span class="dot green"></span></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Condor</h3>
+        <div class="list">
+            <div class="device-item"><span>Imago M710 4K</span><span class="dot green"></span></div>
+            <div class="device-item"><span>A620 HD</span><span class="dot green"></span></div>
+            <div class="device-item"><span>A650 HD</span><span class="dot green"></span></div>
+            <div class="device-item"><span>Open N300 HD</span><span class="dot red"></span></div>
+            <div class="device-item"><span>Play P200 HD</span><span class="dot green"></span></div>
+            <div class="device-item"><span>M600 HD</span><span class="dot red"></span></div>
+            <div class="device-item"><span>CDN-5600 HD</span><span class="dot green"></span></div>
+            <div class="device-item"><span>CDN-6700 HD</span><span class="dot green"></span></div>
+            <div class="device-item"><span>M400 HD</span><span class="dot red"></span></div>
+            <div class="device-item"><span>Open N200</span><span class="dot red"></span></div>
+            <div class="device-item"><span>Play P100</span><span class="dot green"></span></div>
+            <div class="device-item"><span>CDN-9090 HD</span><span class="dot red"></span></div>
+            <div class="device-item"><span>Imago X80</span><span class="dot red"></span></div>
+            <div class="device-item"><span>A600 HD</span><span class="dot red"></span></div>
+            <div class="device-item"><span>Mini S200 HD</span><span class="dot green"></span></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Echolink</h3>
+        <div class="list">
+            <div class="device-item"><span>Femto Pro 5</span><span class="dot green"></span></div>
+            <div class="device-item"><span>Zen Plus</span><span class="dot green"></span></div>
+            <div class="device-item"><span>Tornado V7 4K</span><span class="dot green"></span></div>
+            <div class="device-item"><span>OpenVu 7</span><span class="dot red"></span></div>
+            <div class="device-item"><span>Atomo 4K</span><span class="dot green"></span></div>
+            <div class="device-item"><span>Bravo Pro</span><span class="dot green"></span></div>
+            <div class="device-item"><span>S1+ Pro</span><span class="dot red"></span></div>
+            <div class="device-item"><span>Elit One</span><span class="dot green"></span></div>
+            <div class="device-item"><span>V9 Pro 2</span><span class="dot red"></span></div>
+            <div class="device-item"><span>K7 4K</span><span class="dot green"></span></div>
+            <div class="device-item"><span>Mini 7</span><span class="dot red"></span></div>
+            <div class="device-item"><span>Genius</span><span class="dot red"></span></div>
+            <div class="device-item"><span>Prime</span><span class="dot green"></span></div>
+            <div class="device-item"><span>Switch</span><span class="dot red"></span></div>
+            <div class="device-item"><span>Miracle V1</span><span class="dot red"></span></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Icone</h3>
+        <div class="list">
+            <div class="device-item"><span>IRON PRO 4K</span><span class="dot green"></span></div>
+            <div class="device-item"><span>WEGOO 4K</span><span class="dot green"></span></div>
+            <div class="device-item"><span>ICONE ICE</span><span class="dot red"></span></div>
+            <div class="device-item"><span>Z-ONE</span><span class="dot green"></span></div>
+            <div class="device-item"><span>S-TWO</span><span class="dot green"></span></div>
+            <div class="device-item"><span>i-4040 HD</span><span class="dot green"></span></div>
+            <div class="device-item"><span>VOGUE</span><span class="dot red"></span></div>
+            <div class="device-item"><span>I-3030</span><span class="dot green"></span></div>
+            <div class="device-item"><span>ROCK</span><span class="dot green"></span></div>
+            <div class="device-item"><span>PURE</span><span class="dot green"></span></div>
+            <div class="device-item"><span>SPIDER</span><span class="dot red"></span></div>
+            <div class="device-item"><span>BOX</span><span class="dot green"></span></div>
+            <div class="device-item"><span>WEGOO 2</span><span class="dot green"></span></div>
+            <div class="device-item"><span>I-1515</span><span class="dot red"></span></div>
+            <div class="device-item"><span>I-2020</span><span class="dot green"></span></div>
+        </div>
+    </div>
+</div>
 
 <div class="sat-section">
-    <h3>📦 تحميل ملفات الأقمار 2026 (8 أقمار رئيسية)</h3>
+    <h3>📦 تحميل ملفات الأقمار 2026</h3>
     <div class="sat-grid">
         <a href="#" class="btn-sat">Nilesat 7W</a>
         <a href="#" class="btn-sat">Astra 19.2E</a>
@@ -70,53 +195,18 @@
 </div>
 
 <footer>
-    <p style="font-size: 1.3em; color: var(--primary);">TECH NEWS ARABIC - Toufik Sat</p>
-    <p>دليلك التقني الأول في الجزائر والمغرب العربي</p>
+    <p>TECH NEWS ARABIC - Toufik Sat © 2026</p>
 </footer>
 
 <script>
-    const myInventory = [
-        {
-            brand: "Géant",
-            devices: [
-                { name: "GN-2500 HD Hybrid", status: "green" }, { name: "GN-RS8 Evo", status: "green" }, { name: "GN-750 EVO 4K", status: "green" },
-                { name: "GN-MAMO Plus", status: "green" }, { name: "GN-OTT 750 Allure", status: "red" }, { name: "GN-CX300 Mini Hybrid", status: "green" },
-                { name: "GN-M4 Mini", status: "green" }, { name: "GN-2000 HD Hybrid", status: "green" }, { name: "GN-RS8 HD Plus", status: "red" },
-                { name: "GN-X006 HD Plus", status: "green" }, { name: "GN-RS4 Mini HD", status: "red" }, { name: "GN-OTT 950", status: "red" },
-                { name: "GN-2500 PLUS", status: "red" }, { name: "GN-X3 PLUS", status: "green" }, { name: "GN-6700 Platinum", status: "green" }
-            ]
-        },
-        {
-            brand: "Starsat",
-            devices: [
-                { name: "SR-2000 Extreme", status: "green" }, { name: "SR-T14 Extreme", status: "green" }, { name: "SR-4080 HD", status: "green" },
-                { name: "SR-X1 Pro 4K", status: "red" }, { name: "SR-200 HD 4K", status: "green" }, { name: "SR-90000 Extreme", status: "green" },
-                { name: "SR-7060 HD", status: "green" }, { name: "SR-2020 Super", status: "red" }, { name: "SR-488 HD", status: "green" },
-                { name: "SR-9990 HD", status: "red" }, { name: "SR-2030 HD", status: "green" }, { name: "SR-X7 Extreme", status: "green" },
-                { name: "SR-T13 Extreme", status: "red" }, { name: "SR-6969 HD", status: "red" }, { name: "SR-X3 PRO", status: "green" }
-            ]
-        },
-        {
-            brand: "Condor",
-            devices: [
-                { name: "Imago M710 4K", status: "green" }, { name: "A620 HD", status: "green" }, { name: "A650 HD", status: "green" },
-                { name: "Open N300 HD", status: "red" }, { name: "Play P200 HD", status: "green" }, { name: "M600 HD", status: "red" },
-                { name: "CDN-5600 HD", status: "green" }, { name: "CDN-6700 HD", status: "green" }, { name: "M400 HD", status: "red" },
-                { name: "Open N200", status: "red" }, { name: "Play P100", status: "green" }, { name: "CDN-9090 HD", status: "red" },
-                { name: "Imago X80", status: "red" }, { name: "A600 HD", status: "red" }, { name: "Mini S200 HD", status: "green" }
-            ]
-        },
-        {
-            brand: "Echolink",
-            devices: [
-                { name: "Femto Pro 5", status: "green" }, { name: "Zen Plus", status: "green" }, { name: "Tornado V7 4K", status: "green" },
-                { name: "OpenVu 7", status: "red" }, { name: "Atomo 4K", status: "green" }, { name: "Bravo Pro", status: "green" },
-                { name: "S1+ Pro", status: "red" }, { name: "Elit One", status: "green" }, { name: "V9 Pro 2", status: "red" },
-                { name: "K7 4K", status: "green" }, { name: "Mini 7", status: "red" }, { name: "Genius", status: "red" },
-                { name: "Prime", status: "green" }, { name: "Switch", status: "red" }, { name: "Miracle V1", status: "red" }
-            ]
-        },
-        {
-            brand: "Raylan",
-            devices: [
-                { name: "RS-100 Pro", status: "green" }, { name: "R-600 HD", status: "red" }, { name: "Magic 4K", status: "green"
+    function filter() {
+        let input = document.getElementById('searchInput').value.toLowerCase();
+        let items = document.getElementsByClassName('device-item');
+        for (let i = 0; i < items.length; i++) {
+            items[i].style.display = items[i].innerText.toLowerCase().includes(input) ? "flex" : "none";
+        }
+    }
+    setInterval(() => { document.getElementById('clock').innerText = new Date().toLocaleTimeString('en-GB'); }, 1000);
+</script>
+</body>
+</html>
