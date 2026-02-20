@@ -26,11 +26,11 @@
         /* شريط الأنباء المتحرك */
         .ticker-wrap {
             width: 100%; overflow: hidden; background-color: #c0392b;
-            color: white; padding: 10px 0; font-weight: bold;
+            color: white; padding: 12px 0; font-weight: bold; border-bottom: 2px solid #fff;
         }
         .ticker {
             display: inline-block; white-space: nowrap; padding-right: 100%;
-            animation: ticker 30s linear infinite;
+            animation: ticker 40s linear infinite;
         }
         @keyframes ticker {
             0% { transform: translate3d(0, 0, 0); }
@@ -44,64 +44,74 @@
         }
 
         .header-left { display: flex; align-items: center; gap: 15px; }
-        .dz-flag { width: 40px; }
+        .dz-flag { width: 45px; filter: drop-shadow(0 0 5px #fff); }
 
         #digital-clock {
             font-family: 'Courier New', Courier, monospace;
-            color: var(--primary-color); font-size: 1.2em; font-weight: bold;
+            color: var(--primary-color); font-size: 1.3em; font-weight: bold;
         }
 
         .social-icons a {
-            color: white; margin: 0 10px; font-size: 1.5em; transition: 0.3s;
+            color: white; margin: 0 12px; font-size: 1.6em; transition: 0.3s;
         }
-        .social-icons a:hover { color: var(--primary-color); }
+        .social-icons a:hover { color: var(--primary-color); transform: scale(1.2); }
 
         .container { padding: 30px 5%; text-align: center; }
 
+        /* محرك البحث */
+        .search-box {
+            margin: 30px auto; max-width: 600px; position: relative;
+        }
+        .search-box input {
+            width: 100%; padding: 15px 25px; border-radius: 30px; border: 2px solid var(--primary-color);
+            background: #1a1a1a; color: white; font-size: 1.1em; outline: none;
+        }
+
         .grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px; margin-top: 30px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px; margin-top: 30px;
         }
 
         .card {
-            background: var(--card-bg); padding: 15px; border-radius: 10px;
-            border: 1px solid #333; text-align: right;
+            background: var(--card-bg); padding: 20px; border-radius: 15px;
+            border: 1px solid #333; text-align: right; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
 
         .card h3 { 
-            color: #27ae60; border-bottom: 2px solid #e67e22;
-            padding-bottom: 8px; text-align: center;
+            color: #27ae60; border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px; text-align: center; font-size: 1.5em;
         }
 
         .device-item {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 10px 0; border-bottom: 1px solid #222; font-size: 0.9em;
-            cursor: pointer; transition: 0.2s;
+            padding: 12px 0; border-bottom: 1px solid #222; font-size: 1em;
+            cursor: pointer; transition: 0.3s;
         }
 
-        .device-item:hover { background: #222; padding-right: 5px; color: var(--primary-color); }
+        .device-item:hover { background: #222; padding-right: 10px; color: var(--primary-color); }
 
-        .dot { width: 10px; height: 10px; border-radius: 50%; }
-        .green { background: var(--update-green); box-shadow: 0 0 5px var(--update-green); }
-        .red { background: var(--update-red); }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .green { background: var(--update-green); box-shadow: 0 0 10px var(--update-green); }
+        .red { background: var(--update-red); box-shadow: 0 0 5px var(--update-red); }
 
         .sat-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 10px; margin-top: 20px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px; margin-top: 25px;
         }
         .btn-download {
-            background: #2980b9; color: white; padding: 10px;
-            text-decoration: none; border-radius: 5px; font-size: 0.8em; font-weight: bold;
+            background: linear-gradient(45deg, #2980b9, #3498db); color: white; padding: 15px;
+            text-decoration: none; border-radius: 10px; font-weight: bold; transition: 0.3s;
         }
+        .btn-download:hover { transform: translateY(-5px); background: var(--primary-color); }
 
-        footer { padding: 30px; background: #000; text-align: center; border-top: 3px solid #27ae60; margin-top: 40px; }
+        footer { padding: 40px; background: #000; text-align: center; border-top: 5px solid #27ae60; margin-top: 60px; }
     </style>
 </head>
 <body>
 
 <div class="ticker-wrap">
     <div class="ticker">
-        🔥 تحديثات فيفري 2026 متوفرة الآن على بوابة Toufik Sat .. حصرياً: تشغيل قنوات 4K على أجهزة Géant EVO .. تحميل ملف قنوات الأقمار الثمانية مجاناً .. TECH NEWS ARABIC دليلك التقني 🔥
+        📡 حصرياً: تحديثات أجهزة الاستقبال لشهر فيفري 2026 متوفرة الآن .. عودة باقة OSN و Canal+ للعمل على سيرفرات Forever و Apollo .. تحميل أحدث ملف قنوات لعام 2026 لجميع الأقمار .. TECH NEWS ARABIC اختيارك الأول 📡
     </div>
 </div>
 
@@ -115,128 +125,154 @@
         <a href="#"><i class="fab fa-facebook"></i></a>
         <a href="#"><i class="fab fa-youtube"></i></a>
         <a href="#"><i class="fab fa-telegram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
     </div>
 </header>
 
 <div class="container">
-    <h1>موسوعة أجهزة الاستقبال - Toufik Sat</h1>
+    <h1>بوابة Toufik Sat العالمية</h1>
     
-    <div class="grid">
+    <div class="search-box">
+        <input type="text" id="deviceSearch" placeholder="ابحث عن اسم جهازك هنا (مثلاً: RS8)..." onkeyup="searchDevices()">
+    </div>
+    
+    <div class="grid" id="mainGrid">
         <div class="card">
             <h3>Géant</h3>
             <div class="device-list">
-                <div class="device-item" onclick="download('GN-2500 HD Hybrid')"><span>GN-2500 HD Hybrid</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('GN-RS8 Evo')"><span>GN-RS8 Evo</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('GN-OTT 750 Allure')"><span>GN-OTT 750 Allure</span><span class="dot red"></span></div>
-                <div class="device-item" onclick="download('GN-MAMO Plus')"><span>GN-MAMO Plus</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('GN-750 EVO 4K')"><span>GN-750 EVO 4K</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('GN-CX300 Mini Hybrid')"><span>GN-CX300 Mini Hybrid</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('GN-M4 Mini')"><span>GN-M4 Mini</span><span class="dot red"></span></div>
-                <div class="device-item" onclick="download('GN-2000 HD Hybrid')"><span>GN-2000 HD Hybrid</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('GN-RS8 HD Plus')"><span>GN-RS8 HD Plus</span><span class="dot red"></span></div>
-                <div class="device-item" onclick="download('GN-X006 HD Plus')"><span>GN-X006 HD Plus</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('GN-RS4 Mini')"><span>GN-RS4 Mini</span><span class="dot red"></span></div>
-                <div class="device-item" onclick="download('GN-OTT 950')"><span>GN-OTT 950</span><span class="dot red"></span></div>
-                <div class="device-item" onclick="download('GN-2500 PLUS')"><span>GN-2500 PLUS</span><span class="dot red"></span></div>
-                <div class="device-item" onclick="download('GN-X3 PLUS')"><span>GN-X3 PLUS</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('GN-6700 Platinum')"><span>GN-6700 Platinum</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('GN-2500 HD Hybrid')"><span>GN-2500 HD Hybrid</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('GN-RS8 Evo')"><span>GN-RS8 Evo</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('GN-750 EVO 4K')"><span>GN-750 EVO 4K</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('GN-OTT 750 Allure')"><span>GN-OTT 750 Allure</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('GN-MAMO Plus')"><span>GN-MAMO Plus</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('GN-CX300 Mini Hybrid')"><span>GN-CX300 Mini Hybrid</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('GN-M4 Mini')"><span>GN-M4 Mini</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('GN-2000 HD Hybrid')"><span>GN-2000 HD Hybrid</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('GN-RS8 HD Plus')"><span>GN-RS8 HD Plus</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('GN-X006 HD Plus')"><span>GN-X006 HD Plus</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('GN-RS4 Mini')"><span>GN-RS4 Mini</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('GN-OTT 950')"><span>GN-OTT 950</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('GN-2500 PLUS')"><span>GN-2500 PLUS</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('GN-X3 PLUS')"><span>GN-X3 PLUS</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('GN-6700 Platinum')"><span>GN-6700 Platinum</span><span class="dot green"></span></div>
             </div>
         </div>
 
         <div class="card">
             <h3>Starsat</h3>
             <div class="device-list">
-                <div class="device-item" onclick="download('SR-2000 Extreme')"><span>SR-2000 Extreme</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('SR-T14 Extreme')"><span>SR-T14 Extreme</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('SR-4080 HD')"><span>SR-4080 HD</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('SR-X1 Pro 4K')"><span>SR-X1 Pro 4K</span><span class="dot red"></span></div>
-                <div class="device-item" onclick="download('SR-200 HD 4K')"><span>SR-200 HD 4K</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('SR-90000 Extreme')"><span>SR-90000 Extreme</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('SR-7060 HD')"><span>SR-7060 HD</span><span class="dot red"></span></div>
-                <div class="device-item" onclick="download('SR-2020 Super')"><span>SR-2020 Super</span><span class="dot red"></span></div>
-                <div class="device-item" onclick="download('SR-488 HD')"><span>SR-488 HD</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('SR-9990 HD')"><span>SR-9990 HD</span><span class="dot red"></span></div>
-                <div class="device-item" onclick="download('SR-2030 HD')"><span>SR-2030 HD</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('SR-X7 Extreme')"><span>SR-X7 Extreme</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('SR-T13 Extreme')"><span>SR-T13 Extreme</span><span class="dot red"></span></div>
-                <div class="device-item" onclick="download('SR-6969 HD')"><span>SR-6969 HD</span><span class="dot red"></span></div>
-                <div class="device-item" onclick="download('SR-X3 PRO')"><span>SR-X3 PRO</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('SR-2000 Extreme')"><span>SR-2000 Extreme</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('SR-T14 Extreme')"><span>SR-T14 Extreme</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('SR-4080 HD')"><span>SR-4080 HD</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('SR-X1 Pro 4K')"><span>SR-X1 Pro 4K</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('SR-200 HD 4K')"><span>SR-200 HD 4K</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('SR-90000 Extreme')"><span>SR-90000 Extreme</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('SR-7060 HD')"><span>SR-7060 HD</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('SR-2020 Super')"><span>SR-2020 Super</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('SR-488 HD')"><span>SR-488 HD</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('SR-9990 HD')"><span>SR-9990 HD</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('SR-2030 HD')"><span>SR-2030 HD</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('SR-X7 Extreme')"><span>SR-X7 Extreme</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('SR-T13 Extreme')"><span>SR-T13 Extreme</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('SR-6969 HD')"><span>SR-6969 HD</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('SR-X3 PRO')"><span>SR-X3 PRO</span><span class="dot green"></span></div>
             </div>
         </div>
 
         <div class="card">
-            <h3>Icone</h3>
+            <h3>Condor</h3>
             <div class="device-list">
-                <div class="device-item" onclick="download('IRON PRO 4K')"><span>IRON PRO 4K</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('WEGOO 4K')"><span>WEGOO 4K</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('ICONE ICE')"><span>ICONE ICE</span><span class="dot red"></span></div>
-                <div class="device-item" onclick="download('ICONE Z-ONE')"><span>ICONE Z-ONE</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('ICONE i-4040')"><span>ICONE i-4040</span><span class="dot red"></span></div>
-                <div class="device-item" onclick="download('ICONE S-TWO')"><span>ICONE S-TWO</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('ICONE VOGUE')"><span>ICONE VOGUE</span><span class="dot red"></span></div>
-                <div class="device-item" onclick="download('ICONE I-3030')"><span>ICONE I-3030</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('ICONE ROCK')"><span>ICONE ROCK</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('ICONE PURE')"><span>ICONE PURE</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('ICONE SPIDER')"><span>ICONE SPIDER</span><span class="dot red"></span></div>
-                <div class="device-item" onclick="download('ICONE BOX')"><span>ICONE BOX</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('ICONE WEGOO 2')"><span>ICONE WEGOO 2</span><span class="dot red"></span></div>
-                <div class="device-item" onclick="download('ICONE I-1515')"><span>ICONE I-1515</span><span class="dot red"></span></div>
-                <div class="device-item" onclick="download('ICONE I-2020')"><span>ICONE I-2020</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('Condor Imago M710')"><span>Imago M710 4K</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('Condor A620 HD')"><span>Condor A620 HD</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('Condor A650 HD')"><span>Condor A650 HD</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('Condor Open N300')"><span>Open N300 HD</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('Condor Play P200')"><span>Play P200 HD</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('Condor M600 HD')"><span>Condor M600 HD</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('Condor CDN-5600')"><span>CDN-5600 HD</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('Condor CDN-6700')"><span>CDN-6700 HD</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('Condor M400 HD')"><span>Condor M400 HD</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('Condor Open N200')"><span>Open N200</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('Condor Play P100')"><span>Play P100</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('Condor CDN-9090')"><span>CDN-9090 HD</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('Condor Imago X80')"><span>Imago X80</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('Condor A600 HD')"><span>Condor A600 HD</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('Condor Mini S200')"><span>Mini S200 HD</span><span class="dot green"></span></div>
             </div>
         </div>
 
         <div class="card">
-            <h3>Raylan</h3>
+            <h3>Echolink</h3>
             <div class="device-list">
-                <div class="device-item" onclick="download('Raylan RS-100 Pro')"><span>Raylan RS-100 Pro</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('Raylan R-600 HD')"><span>Raylan R-600 HD</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('Raylan Magic 4K')"><span>Raylan Magic 4K</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('Raylan Nano Pro')"><span>Raylan Nano Pro</span><span class="dot red"></span></div>
-                <div class="device-item" onclick="download('Raylan Combo')"><span>Raylan Combo</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('Raylan R-mini')"><span>Raylan R-mini</span><span class="dot red"></span></div>
-                <div class="device-item" onclick="download('Raylan PRO 2')"><span>Raylan PRO 2</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('Raylan Max')"><span>Raylan Max</span><span class="dot red"></span></div>
-                <div class="device-item" onclick="download('Raylan Star')"><span>Raylan Star</span><span class="dot red"></span></div>
-                <div class="device-item" onclick="download('Raylan Galaxy')"><span>Raylan Galaxy</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('Raylan Prime')"><span>Raylan Prime</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('Raylan One')"><span>Raylan One</span><span class="dot red"></span></div>
-                <div class="device-item" onclick="download('Raylan X-7')"><span>Raylan X-7</span><span class="dot green"></span></div>
-                <div class="device-item" onclick="download('Raylan V9')"><span>Raylan V9</span><span class="dot red"></span></div>
-                <div class="device-item" onclick="download('Raylan Ultra')"><span>Raylan Ultra</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('Femto Pro 5')"><span>Femto Pro 5</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('Zen Plus')"><span>Zen Plus</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('Tornado V7 4K')"><span>Tornado V7 4K</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('OpenVu 7')"><span>OpenVu 7</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('Atomo 4K')"><span>Atomo 4K</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('Bravo Pro')"><span>Bravo Pro</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('S1+ Pro')"><span>S1+ Pro</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('Elit One')"><span>Elit One</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('V9 Pro 2')"><span>V9 Pro 2</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('K7 4K')"><span>K7 4K</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('Mini 7')"><span>Mini 7</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('Genius')"><span>Genius</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('Prime')"><span>Prime</span><span class="dot green"></span></div>
+                <div class="device-item" onclick="dl('Switch')"><span>Switch</span><span class="dot red"></span></div>
+                <div class="device-item" onclick="dl('Miracle V1')"><span>Miracle V1</span><span class="dot red"></span></div>
             </div>
         </div>
     </div>
 
-    <div style="margin-top:50px; background:#000; padding:20px; border-radius:10px; border: 1px solid #27ae60;">
-        <h3>تحميل ملفات الأقمار الثمانية</h3>
+    <div style="margin-top:60px; background:#000; padding:30px; border-radius:20px; border: 2px solid #27ae60;">
+        <h3 style="font-size: 1.8em; margin-bottom: 20px;">📦 تحميل ملفات الأقمار 2026</h3>
         <div class="sat-grid">
-            <a href="#" class="btn-download" onclick="download('Nilesat')">Nilesat 7W</a>
-            <a href="#" class="btn-download" onclick="download('Astra')">Astra 19.2E</a>
-            <a href="#" class="btn-download" onclick="download('Hotbird')">Hotbird 13E</a>
-            <a href="#" class="btn-download" onclick="download('Badr')">Badr 26E</a>
-            <a href="#" class="btn-download" onclick="download('Eutelsat 9E')">Eutelsat 9E</a>
-            <a href="#" class="btn-download" onclick="download('Hispasat')">Hispasat 30W</a>
-            <a href="#" class="btn-download" onclick="download('Thor')">Thor 0.8W</a>
-            <a href="#" class="btn-download" onclick="download('Eutelsat 5W')">Eutelsat 5W</a>
+            <a href="#" class="btn-download" onclick="dl('Nilesat')">Nilesat 7W</a>
+            <a href="#" class="btn-download" onclick="dl('Astra')">Astra 19.2E</a>
+            <a href="#" class="btn-download" onclick="dl('Hotbird')">Hotbird 13E</a>
+            <a href="#" class="btn-download" onclick="dl('Badr')">Badr 26E</a>
+            <a href="#" class="btn-download" onclick="dl('Eutelsat 9E')">Eutelsat 9E</a>
+            <a href="#" class="btn-download" onclick="dl('Hispasat')">Hispasat 30W</a>
+            <a href="#" class="btn-download" onclick="dl('Thor')">Thor 0.8W</a>
+            <a href="#" class="btn-download" onclick="dl('Eutelsat 5W')">Eutelsat 5W</a>
         </div>
     </div>
 </div>
 
 <footer>
-    <p>TECH NEWS ARABIC © 2026 - جميع الحقوق محفوظة لـ Toufik Sat</p>
+    <div class="social-icons" style="margin-bottom: 20px;">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-telegram"></i></a>
+    </div>
+    <p style="font-size: 1.2em; font-weight: bold; color: var(--primary-color);">TECH NEWS ARABIC - Toufik Sat</p>
+    <p>جميع الحقوق محفوظة © 2026</p>
 </footer>
 
 <script>
+    // الساعة الحية
     function updateClock() {
         const now = new Date();
         document.getElementById('digital-clock').innerText = now.toLocaleTimeString('en-GB');
     }
     setInterval(updateClock, 1000);
 
-    function download(deviceName) {
-        alert("جارٍ توجيهك لتحميل آخر تحديث لجهاز: " + deviceName);
-        // هنا يمكنك وضع رابط حقيقي بدلاً من التنبيه
-        // window.location.href = "https://example.com/download/" + deviceName;
+    // دالة التحميل
+    function dl(name) {
+        alert("📥 يتم الآن تجهيز رابط تحميل التحديث لـ: " + name + "\nيرجى الانتظار ثواني...");
+    }
+
+    // محرك البحث الذكي
+    function searchDevices() {
+        let input = document.getElementById('deviceSearch').value.toLowerCase();
+        let items = document.getElementsByClassName('device-item');
+        
+        for (let i = 0; i < items.length; i++) {
+            let txtValue = items[i].textContent || items[i].innerText;
+            if (txtValue.toLowerCase().indexOf(input) > -1) {
+                items[i].style.display = "";
+            } else {
+                items[i].style.display = "none";
+            }
+        }
     }
 </script>
 
