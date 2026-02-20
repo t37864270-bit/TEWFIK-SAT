@@ -3,210 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TECH NEWS ARABIC - Toufik Sat</title>
+    <title>TECH NEWS ARABIC | عالم أجهزة الاستقبال</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #e67e22; --bg: #0b0c0d; --card: #16181a; --green: #2ecc71; --red: #e74c3c; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: white; margin: 0; overflow-x: hidden; }
-        .ticker-wrap { background: #c0392b; color: white; padding: 12px 0; overflow: hidden; white-space: nowrap; }
-        .ticker { display: inline-block; animation: ticker 40s linear infinite; font-weight: bold; }
+        :root { --primary: #e67e22; --accent: #27ae60; --bg: #0b0c0d; --card: #1c1e22; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: white; margin: 0; }
+        
+        /* تأثيرات عالمية - Glassmorphism */
+        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+        
+        /* شريط الأخبار الذكي */
+        .ticker-wrap { background: #c0392b; padding: 10px 0; font-weight: bold; position: sticky; top: 0; z-index: 2000; }
+        .ticker { display: inline-block; animation: ticker 30s linear infinite; white-space: nowrap; }
         @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-        header { background: #000; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #27ae60; position: sticky; top: 0; z-index: 1000; }
-        .dz-flag { width: 45px; }
-        #clock { color: var(--primary); font-weight: bold; font-size: 1.3em; }
-        .search-container { padding: 30px 5%; text-align: center; }
-        .search-box { width: 100%; max-width: 600px; padding: 15px; border-radius: 30px; border: 2px solid var(--primary); background: #1a1a1a; color: white; outline: none; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; padding: 0 5% 40px; }
-        .card { background: var(--card); padding: 20px; border-radius: 15px; border: 1px solid #333; }
-        .card h3 { color: #27ae60; border-bottom: 3px solid var(--primary); padding-bottom: 10px; text-align: center; margin-bottom: 15px; }
-        .device-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #222; cursor: pointer; }
-        .device-item:hover { background: #222; color: var(--primary); }
-        .dot { width: 12px; height: 12px; border-radius: 50%; }
-        .green { background: var(--green); box-shadow: 0 0 8px var(--green); }
-        .red { background: var(--red); }
-        .sat-section { background: #000; margin: 20px 5%; padding: 30px; border-radius: 20px; border: 2px solid #27ae60; text-align: center; }
-        .sat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-top: 20px; }
-        .btn-sat { background: #2980b9; color: white; padding: 10px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 0.8em; }
-        footer { background: #000; padding: 30px; text-align: center; border-top: 5px solid #27ae60; }
+
+        header { padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; background: #000; border-bottom: 3px solid var(--accent); }
+        .dz-badge { background: var(--accent); padding: 5px 15px; border-radius: 20px; font-size: 0.8em; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+
+        /* محرك البحث المتطور */
+        .search-section { padding: 40px 5%; text-align: center; background: linear-gradient(to bottom, #000, var(--bg)); }
+        .search-box { width: 80%; max-width: 700px; padding: 18px 30px; border-radius: 50px; border: 2px solid var(--primary); background: rgba(0,0,0,0.7); color: white; font-size: 1.2em; transition: 0.4s; box-shadow: 0 0 20px rgba(230, 126, 34, 0.2); }
+        .search-box:focus { width: 90%; box-shadow: 0 0 30px var(--primary); outline: none; }
+
+        /* شبكة الأجهزة */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 40px 5%; }
+        .card { background: var(--card); border-radius: 20px; overflow: hidden; transition: 0.3s; position: relative; border: 1px solid #333; }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .card-header { background: #25282c; padding: 15px; text-align: center; font-size: 1.4em; color: var(--accent); font-weight: bold; border-bottom: 2px solid var(--primary); }
+        
+        .device-list { max-height: 400px; overflow-y: auto; padding: 10px; }
+        .device-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; margin: 5px 0; background: rgba(255,255,255,0.03); border-radius: 10px; cursor: pointer; transition: 0.2s; }
+        .device-item:hover { background: var(--primary); color: black; font-weight: bold; }
+        
+        /* زر التحميل التلقائي */
+        .download-btn { background: var(--accent); color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.7em; text-decoration: none; }
+
+        /* قسم الأقمار الثمانية العالمي */
+        .sat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; padding: 20px; }
+        .sat-card { background: #111; padding: 20px; border-radius: 15px; text-align: center; border: 1px solid var(--accent); transition: 0.3s; text-decoration: none; color: white; }
+        .sat-card:hover { background: var(--accent); }
+
+        footer { background: #000; padding: 50px; text-align: center; margin-top: 50px; border-top: 2px solid var(--accent); }
     </style>
 </head>
 <body>
 
 <div class="ticker-wrap">
-    <div class="ticker">📡 تحديثات فيفري 2026: أجهزة 4K و Forever تعمل بثبات .. تحميل ملفات القنوات حصرياً على Toufik Sat .. الجبهة الداخلية الجزائرية واعية 100% 📡</div>
+    <div class="ticker">🚀 تحديثات 2026 حصرية: تشغيل نظام 4K Ultra HD على أجهزة الجيل الثالث .. سيرفر Forever Pro يضيف باقات عالمية جديدة .. الجبهة الداخلية الجزائرية واعية 100% 🚀</div>
 </div>
 
 <header>
-    <div style="display:flex; align-items:center; gap:15px;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg" class="dz-flag">
-        <div id="clock">00:00:00</div>
+    <div style="display:flex; align-items:center; gap:20px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg" width="50">
+        <div id="clock" style="font-family: monospace; font-size: 1.5em; color: var(--primary);">00:00:00</div>
     </div>
-    <h2>TECH NEWS ARABIC</h2>
-    <div class="social-icons">
-        <i class="fab fa-facebook" style="font-size:1.5em; margin-left:10px;"></i>
-        <i class="fab fa-youtube" style="font-size:1.5em;"></i>
+    <div class="dz-badge">TOUFIK SAT - GLOBAL TECH</div>
+    <div class="social">
+        <a href="#" style="color:white; font-size: 1.5em; margin: 0 10px;"><i class="fab fa-youtube"></i></a>
+        <a href="#" style="color:white; font-size: 1.5em;"><i class="fab fa-telegram"></i></a>
     </div>
 </header>
 
-<div class="search-container">
-    <input type="text" id="searchInput" class="search-box" onkeyup="filter()" placeholder="ابحث عن جهازك (Géant, Starsat, Raylan...)...">
+<div class="search-section">
+    <h1>ابحث عن تحديث جهازك الآن</h1>
+    <input type="text" id="mainSearch" class="search-box" onkeyup="smartSearch()" placeholder="اكتب اسم الجهاز (مثال: GN-2500)...">
 </div>
 
-<div class="grid">
-    <div class="card">
-        <h3>Géant</h3>
-        <div class="list">
-            <div class="device-item"><span>GN-2500 HD Hybrid</span><span class="dot green"></span></div>
-            <div class="device-item"><span>GN-RS8 Evo</span><span class="dot green"></span></div>
-            <div class="device-item"><span>GN-750 EVO 4K</span><span class="dot green"></span></div>
-            <div class="device-item"><span>GN-MAMO Plus</span><span class="dot green"></span></div>
-            <div class="device-item"><span>GN-OTT 750 Allure</span><span class="dot red"></span></div>
-            <div class="device-item"><span>GN-CX300 Mini Hybrid</span><span class="dot green"></span></div>
-            <div class="device-item"><span>GN-M4 Mini</span><span class="dot green"></span></div>
-            <div class="device-item"><span>GN-2000 HD Hybrid</span><span class="dot green"></span></div>
-            <div class="device-item"><span>GN-RS8 HD Plus</span><span class="dot red"></span></div>
-            <div class="device-item"><span>GN-X006 HD Plus</span><span class="dot green"></span></div>
-            <div class="device-item"><span>GN-RS4 Mini HD</span><span class="dot red"></span></div>
-            <div class="device-item"><span>GN-OTT 950</span><span class="dot red"></span></div>
-            <div class="device-item"><span>GN-2500 PLUS</span><span class="dot red"></span></div>
-            <div class="device-item"><span>GN-X3 PLUS</span><span class="dot green"></span></div>
-            <div class="device-item"><span>GN-6700 Platinum</span><span class="dot green"></span></div>
-        </div>
+<div class="grid" id="mainGrid">
     </div>
 
-    <div class="card">
-        <h3>Starsat</h3>
-        <div class="list">
-            <div class="device-item"><span>SR-2000 Extreme</span><span class="dot green"></span></div>
-            <div class="device-item"><span>SR-T14 Extreme</span><span class="dot green"></span></div>
-            <div class="device-item"><span>SR-4080 HD</span><span class="dot green"></span></div>
-            <div class="device-item"><span>SR-X1 Pro 4K</span><span class="dot red"></span></div>
-            <div class="device-item"><span>SR-200 HD 4K</span><span class="dot green"></span></div>
-            <div class="device-item"><span>SR-90000 Extreme</span><span class="dot green"></span></div>
-            <div class="device-item"><span>SR-7060 HD</span><span class="dot green"></span></div>
-            <div class="device-item"><span>SR-2020 Super</span><span class="dot red"></span></div>
-            <div class="device-item"><span>SR-488 HD</span><span class="dot green"></span></div>
-            <div class="device-item"><span>SR-9990 HD</span><span class="dot red"></span></div>
-            <div class="device-item"><span>SR-2030 HD</span><span class="dot green"></span></div>
-            <div class="device-item"><span>SR-X7 Extreme</span><span class="dot green"></span></div>
-            <div class="device-item"><span>SR-T13 Extreme</span><span class="dot red"></span></div>
-            <div class="device-item"><span>SR-6969 HD</span><span class="dot red"></span></div>
-            <div class="device-item"><span>SR-X3 PRO</span><span class="dot green"></span></div>
-        </div>
-    </div>
-
-    <div class="card">
-        <h3>Raylan</h3>
-        <div class="list">
-            <div class="device-item"><span>RS-100 Pro</span><span class="dot green"></span></div>
-            <div class="device-item"><span>R-600 HD</span><span class="dot red"></span></div>
-            <div class="device-item"><span>Magic 4K</span><span class="dot green"></span></div>
-            <div class="device-item"><span>NANO</span><span class="dot green"></span></div>
-            <div class="device-item"><span>R-MAX</span><span class="dot green"></span></div>
-            <div class="device-item"><span>Falcon</span><span class="dot red"></span></div>
-            <div class="device-item"><span>R-700</span><span class="dot green"></span></div>
-            <div class="device-item"><span>X100</span><span class="dot green"></span></div>
-            <div class="device-item"><span>R-PRO</span><span class="dot red"></span></div>
-            <div class="device-item"><span>S-VOGUE</span><span class="dot green"></span></div>
-            <div class="device-item"><span>R-Mini</span><span class="dot green"></span></div>
-            <div class="device-item"><span>CRYSTAL</span><span class="dot red"></span></div>
-            <div class="device-item"><span>GOLD</span><span class="dot green"></span></div>
-            <div class="device-item"><span>SMART</span><span class="dot red"></span></div>
-            <div class="device-item"><span>R-200</span><span class="dot green"></span></div>
-        </div>
-    </div>
-
-    <div class="card">
-        <h3>Condor</h3>
-        <div class="list">
-            <div class="device-item"><span>Imago M710 4K</span><span class="dot green"></span></div>
-            <div class="device-item"><span>A620 HD</span><span class="dot green"></span></div>
-            <div class="device-item"><span>A650 HD</span><span class="dot green"></span></div>
-            <div class="device-item"><span>Open N300 HD</span><span class="dot red"></span></div>
-            <div class="device-item"><span>Play P200 HD</span><span class="dot green"></span></div>
-            <div class="device-item"><span>M600 HD</span><span class="dot red"></span></div>
-            <div class="device-item"><span>CDN-5600 HD</span><span class="dot green"></span></div>
-            <div class="device-item"><span>CDN-6700 HD</span><span class="dot green"></span></div>
-            <div class="device-item"><span>M400 HD</span><span class="dot red"></span></div>
-            <div class="device-item"><span>Open N200</span><span class="dot red"></span></div>
-            <div class="device-item"><span>Play P100</span><span class="dot green"></span></div>
-            <div class="device-item"><span>CDN-9090 HD</span><span class="dot red"></span></div>
-            <div class="device-item"><span>Imago X80</span><span class="dot red"></span></div>
-            <div class="device-item"><span>A600 HD</span><span class="dot red"></span></div>
-            <div class="device-item"><span>Mini S200 HD</span><span class="dot green"></span></div>
-        </div>
-    </div>
-
-    <div class="card">
-        <h3>Echolink</h3>
-        <div class="list">
-            <div class="device-item"><span>Femto Pro 5</span><span class="dot green"></span></div>
-            <div class="device-item"><span>Zen Plus</span><span class="dot green"></span></div>
-            <div class="device-item"><span>Tornado V7 4K</span><span class="dot green"></span></div>
-            <div class="device-item"><span>OpenVu 7</span><span class="dot red"></span></div>
-            <div class="device-item"><span>Atomo 4K</span><span class="dot green"></span></div>
-            <div class="device-item"><span>Bravo Pro</span><span class="dot green"></span></div>
-            <div class="device-item"><span>S1+ Pro</span><span class="dot red"></span></div>
-            <div class="device-item"><span>Elit One</span><span class="dot green"></span></div>
-            <div class="device-item"><span>V9 Pro 2</span><span class="dot red"></span></div>
-            <div class="device-item"><span>K7 4K</span><span class="dot green"></span></div>
-            <div class="device-item"><span>Mini 7</span><span class="dot red"></span></div>
-            <div class="device-item"><span>Genius</span><span class="dot red"></span></div>
-            <div class="device-item"><span>Prime</span><span class="dot green"></span></div>
-            <div class="device-item"><span>Switch</span><span class="dot red"></span></div>
-            <div class="device-item"><span>Miracle V1</span><span class="dot red"></span></div>
-        </div>
-    </div>
-
-    <div class="card">
-        <h3>Icone</h3>
-        <div class="list">
-            <div class="device-item"><span>IRON PRO 4K</span><span class="dot green"></span></div>
-            <div class="device-item"><span>WEGOO 4K</span><span class="dot green"></span></div>
-            <div class="device-item"><span>ICONE ICE</span><span class="dot red"></span></div>
-            <div class="device-item"><span>Z-ONE</span><span class="dot green"></span></div>
-            <div class="device-item"><span>S-TWO</span><span class="dot green"></span></div>
-            <div class="device-item"><span>i-4040 HD</span><span class="dot green"></span></div>
-            <div class="device-item"><span>VOGUE</span><span class="dot red"></span></div>
-            <div class="device-item"><span>I-3030</span><span class="dot green"></span></div>
-            <div class="device-item"><span>ROCK</span><span class="dot green"></span></div>
-            <div class="device-item"><span>PURE</span><span class="dot green"></span></div>
-            <div class="device-item"><span>SPIDER</span><span class="dot red"></span></div>
-            <div class="device-item"><span>BOX</span><span class="dot green"></span></div>
-            <div class="device-item"><span>WEGOO 2</span><span class="dot green"></span></div>
-            <div class="device-item"><span>I-1515</span><span class="dot red"></span></div>
-            <div class="device-item"><span>I-2020</span><span class="dot green"></span></div>
-        </div>
-    </div>
-</div>
-
-<div class="sat-section">
-    <h3>📦 تحميل ملفات الأقمار 2026</h3>
+<div class="sat-section" style="padding: 0 5%;">
+    <h2 style="text-align:center; color: var(--primary);">🌐 تحميل ملفات القنوات العالمية (8 أقمار)</h2>
     <div class="sat-grid">
-        <a href="#" class="btn-sat">Nilesat 7W</a>
-        <a href="#" class="btn-sat">Astra 19.2E</a>
-        <a href="#" class="btn-sat">Hotbird 13E</a>
-        <a href="#" class="btn-sat">Badr 26E</a>
-        <a href="#" class="btn-sat">Eutelsat 9E</a>
-        <a href="#" class="btn-sat">Eutelsat 16E</a>
-        <a href="#" class="btn-sat">Hispasat 30W</a>
-        <a href="#" class="btn-sat">Thor 0.8W</a>
+        <a href="https://www.vhannibal.net/" target="_blank" class="sat-card"><i class="fas fa-satellite"></i><br>Nilesat 7W</a>
+        <a href="https://www.vhannibal.net/" target="_blank" class="sat-card"><i class="fas fa-satellite"></i><br>Astra 19.2E</a>
+        <a href="https://www.vhannibal.net/" target="_blank" class="sat-card"><i class="fas fa-satellite"></i><br>Hotbird 13E</a>
+        <a href="https://www.vhannibal.net/" target="_blank" class="sat-card"><i class="fas fa-satellite"></i><br>Badr 26E</a>
+        <a href="https://www.vhannibal.net/" target="_blank" class="sat-card"><i class="fas fa-satellite"></i><br>Eutelsat 9E</a>
+        <a href="https://www.vhannibal.net/" target="_blank" class="sat-card"><i class="fas fa-satellite"></i><br>Eutelsat 16E</a>
+        <a href="https://www.vhannibal.net/" target="_blank" class="sat-card"><i class="fas fa-satellite"></i><br>Hispasat 30W</a>
+        <a href="https://www.vhannibal.net/" target="_blank" class="sat-card"><i class="fas fa-satellite"></i><br>Thor 0.8W</a>
     </div>
 </div>
 
 <footer>
-    <p>TECH NEWS ARABIC - Toufik Sat © 2026</p>
+    <p>© 2026 TECH NEWS ARABIC - المنصة العالمية لتوفيق سات</p>
+    <p style="font-size: 0.8em; color: #777;">جميع الروابط تؤدي إلى السيرفرات الرسمية المحدثة تلقائياً</p>
 </footer>
 
 <script>
-    function filter() {
-        let input = document.getElementById('searchInput').value.toLowerCase();
+    // تكنولوجيا الربط المباشر بالمصادر العالمية
+    const data = [
+        { brand: "Géant Electronics", url: "https://zinet-sat.com/index.php?route=product/category&path=110", devices: ["GN-2500 Hybrid", "GN-RS8 Evo", "GN-750 EVO 4K", "GN-MAMO Plus", "GN-CX300", "GN-M4 Mini", "GN-2000 Hybrid", "GN-X006 HD", "GN-RS4 Mini", "GN-OTT 950", "GN-2500 PLUS", "GN-X3 PLUS", "GN-6700 Platinum", "GN-RS8 HD Plus", "GN-OTT 750"] },
+        { brand: "Starsat International", url: "https://swdw.net/", devices: ["SR-2000 Extreme", "SR-T14 Extreme", "SR-4080 HD", "SR-X1 Pro 4K", "SR-200 HD 4K", "SR-90000 Extreme", "SR-7060 HD", "SR-2020 Super", "SR-488 HD", "SR-9990 HD", "SR-2030 HD", "SR-X7 Extreme", "SR-T13 Extreme", "SR-6969 HD", "SR-X3 PRO"] },
+        { brand: "Icone Global", url: "http://icone.bz/", devices: ["IRON PRO 4K", "WEGOO 4K", "ICONE ICE", "Z-ONE", "S-TWO", "i-4040 HD", "VOGUE", "I-3030", "ROCK", "PURE", "SPIDER", "BOX", "WEGOO 2", "I-1515", "I-2020"] },
+        { brand: "Condor Algeria", url: "https://www.condor.dz/", devices: ["Imago M710 4K", "A620 HD", "A650 HD", "Open N300 HD", "Play P200 HD", "M600 HD", "CDN-5600 HD", "CDN-6700 HD", "M400 HD", "Open N200", "Play P100", "CDN-9090 HD", "Imago X80", "A600 HD", "Mini S200 HD"] },
+        { brand: "Echolink HD", url: "https://echolinkhd.com/", devices: ["Femto Pro 5", "Zen Plus", "Tornado V7 4K", "OpenVu 7", "Atomo 4K", "Bravo Pro", "S1+ Pro", "Elit One", "V9 Pro 2", "K7 4K", "Mini 7", "Genius", "Prime", "Switch", "Miracle V1"] },
+        { brand: "Raylan Tech", url: "http://www.raylan-mobi.com/", devices: ["RS-100 Pro", "R-600 HD", "Magic 4K", "NANO", "R-MAX", "Falcon", "R-700", "X100", "R-PRO", "S-VOGUE", "R-Mini", "CRYSTAL", "GOLD", "SMART", "R-200"] }
+    ];
+
+    function build() {
+        const grid = document.getElementById('mainGrid');
+        grid.innerHTML = data.map(item => `
+            <div class="card glass">
+                <div class="card-header">${item.brand}</div>
+                <div class="device-list">
+                    ${item.devices.map(d => `
+                        <div class="device-item" onclick="window.open('${item.url}', '_blank')">
+                            <span>${d}</span>
+                            <span class="download-btn"><i class="fas fa-download"></i> تحديث</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function smartSearch() {
+        let input = document.getElementById('mainSearch').value.toLowerCase();
         let items = document.getElementsByClassName('device-item');
-        for (let i = 0; i < items.length; i++) {
-            items[i].style.display = items[i].innerText.toLowerCase().includes(input) ? "flex" : "none";
+        for (let item of items) {
+            item.style.display = item.innerText.toLowerCase().includes(input) ? "flex" : "none";
         }
     }
+
     setInterval(() => { document.getElementById('clock').innerText = new Date().toLocaleTimeString('en-GB'); }, 1000);
+    build();
 </script>
 </body>
 </html>
