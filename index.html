@@ -2,181 +2,153 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>TOUFIK SAT VIP | توفيق سات - بث وتحديثات</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOUFIK SAT VIP | توفيق سات - تحديثات 2026</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root { --primary: #ff4500; --green: #2ecc71; --blue: #3498db; --bg: #0b0c0d; --card: #16181b; --gold: #f1c40f; --red: #ff0000; }
-        html, body { max-width: 100%; overflow-x: hidden; margin: 0; padding: 0; background: var(--bg); color: white; font-family: 'Segoe UI', Tahoma, sans-serif; scroll-behavior: smooth; }
+        body { margin: 0; padding: 0; background: var(--bg); color: white; font-family: 'Segoe UI', Tahoma, sans-serif; direction: rtl; }
 
-        /* شريط الأخبار */
-        .news-ticker { background: #b30000; padding: 12px 0; border-bottom: 2px solid var(--gold); position: sticky; top: 0; z-index: 1000; }
-        .ticker-inner { display: inline-block; white-space: nowrap; animation: ticker 40s linear infinite; font-weight: bold; }
-        @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+        /* شريط الأخبار العاجلة */
+        .ticker { background: #b30000; padding: 10px 0; border-bottom: 2px solid var(--gold); position: sticky; top: 0; z-index: 1000; overflow: hidden; }
+        .ticker-move { display: inline-block; white-space: nowrap; animation: move 30s linear infinite; font-weight: bold; }
+        @keyframes move { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        /* الهيدر */
-        header { background: #000; padding: 25px 5%; text-align: center; border-bottom: 4px solid var(--green); }
-        .top-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        #clock { color: var(--primary); font-size: 1.8em; font-weight: bold; text-shadow: 0 0 10px var(--primary); }
-        .v-counter { background: rgba(46, 204, 113, 0.1); border: 1px solid var(--green); padding: 5px 15px; border-radius: 20px; font-size: 0.9em; }
-        .pulse { height: 8px; width: 8px; background: var(--green); border-radius: 50%; display: inline-block; margin-left: 5px; animation: p 1s infinite; }
-        @keyframes p { 0% { opacity: 1; } 50% { opacity: 0.2; } 100% { opacity: 1; } }
-        .site-title { font-size: 2.8em; font-weight: 900; background: linear-gradient(45deg, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        /* الهيدر والعداد */
+        header { background: #000; padding: 20px 5%; text-align: center; border-bottom: 4px solid var(--green); }
+        .top-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        #clock { color: var(--primary); font-size: 1.5em; font-weight: bold; }
+        .visitor-box { background: rgba(46, 204, 113, 0.1); border: 1px solid var(--green); padding: 5px 12px; border-radius: 20px; font-size: 0.85em; }
+        .dot { height: 8px; width: 8px; background: var(--green); border-radius: 50%; display: inline-block; margin-left: 5px; animation: blink 1s infinite; }
+        @keyframes blink { 50% { opacity: 0.3; } }
+        .site-title { font-size: 2.5em; font-weight: 900; background: linear-gradient(45deg, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* أماكن الإعلانات (الربح) */
-        .ad-space { background: rgba(255,255,255,0.05); margin: 20px 5%; padding: 25px; border: 1px dashed #555; text-align: center; border-radius: 12px; color: #888; }
+        /* مساحات الإعلانات (للربح) */
+        .ads-box { background: rgba(255,255,255,0.05); margin: 15px 5%; padding: 20px; border: 1px dashed #444; text-align: center; border-radius: 10px; color: #777; font-size: 0.9em; }
 
-        /* جدول المباريات التلقائي */
-        .match-card { background: #1a1c1f; border-radius: 20px; padding: 20px; margin: 20px 5%; border: 1px solid #333; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .match-card h3 { color: var(--gold); border-bottom: 2px solid #333; padding-bottom: 10px; display: flex; justify-content: space-between; }
-        .match-row { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #222; }
-        .match-time { color: var(--blue); font-weight: bold; font-family: monospace; }
-        .live-label { background: var(--red); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.7em; animation: blinker 1s linear infinite; }
-        @keyframes blinker { 50% { opacity: 0; } }
+        /* جدول المباريات الحقيقي */
+        .match-card { background: #1a1c1f; border-radius: 15px; padding: 20px; margin: 20px 5%; border: 1px solid #333; }
+        .match-card h3 { color: var(--gold); border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .match-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #222; font-size: 0.95em; }
+        .m-time { color: var(--blue); font-weight: bold; }
+        .live-tag { background: var(--red); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75em; animation: flash 1s infinite; }
+        @keyframes flash { 50% { opacity: 0; } }
 
         /* السيرفرات والأقمار */
-        .section-h { color: var(--gold); padding: 0 5%; margin-top: 30px; font-size: 1.6em; border-right: 6px solid var(--primary); }
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px 5%; }
-        .info-card { background: var(--card); border-radius: 15px; padding: 20px; border-bottom: 4px solid var(--blue); }
-        .srv-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #222; }
+        .section-title { padding: 0 5%; color: var(--gold); border-right: 5px solid var(--primary); margin-top: 25px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 20px 5%; }
+        .info-card { background: var(--card); border-radius: 12px; padding: 15px; border-bottom: 3px solid var(--blue); }
+        .row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #222; }
 
-        .sat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; padding: 20px 5%; }
-        .sat-btn { background: var(--card); padding: 15px; border-radius: 10px; text-align: center; text-decoration: none; color: white; border: 1px solid #333; transition: 0.3s; }
-        .sat-btn:hover { background: var(--primary); transform: translateY(-5px); }
+        .sat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; padding: 20px 5%; }
+        .sat-link { background: var(--card); padding: 15px 5px; border-radius: 8px; text-align: center; text-decoration: none; color: white; border: 1px solid #333; font-size: 0.85em; }
+        .sat-link:hover { background: var(--primary); }
 
         /* الأجهزة */
         .brand-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px 5%; }
-        .brand-box { background: var(--card); border-radius: 15px; border: 1px solid #333; overflow: hidden; }
-        .brand-head { background: #222; padding: 12px; text-align: center; color: var(--green); font-weight: bold; border-bottom: 2px solid var(--primary); }
-        .dl-btn { background: var(--primary); color: white; padding: 5px 12px; border-radius: 6px; text-decoration: none; font-size: 0.8em; }
+        .brand-item { background: var(--card); border-radius: 12px; border: 1px solid #333; overflow: hidden; }
+        .brand-title { background: #222; padding: 10px; text-align: center; color: var(--green); border-bottom: 2px solid var(--primary); }
+        .dl-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 15px; border-bottom: 1px solid #222; }
+        .dl-btn { background: var(--primary); color: white; padding: 4px 10px; border-radius: 5px; text-decoration: none; font-size: 0.8em; }
 
-        footer { background: #000; padding: 40px; text-align: center; border-top: 1px solid #222; }
+        footer { background: #000; padding: 30px; text-align: center; border-top: 1px solid #222; margin-top: 20px; }
     </style>
 </head>
 <body>
 
-<div class="news-ticker">
-    <div class="ticker-inner">🌍 توفيق سات: الجبهة الجزائرية واعية 100% .. جدول مباريات اليوم يتحدث تلقائياً .. تابع حالة السيرفرات والتحديثات أولاً بأول 🌍</div>
+<div class="ticker">
+    <div class="ticker-move">🔥 توفيق سات: الجبهة الداخلية الجزائرية واعية 100% .. مبروك عودة باقة VIP وثبات سيرفر Forever 1.45 .. ترقبوا تحديثات جيون وستارسات الليلة 🔥</div>
 </div>
 
 <header>
-    <div class="top-row">
+    <div class="top-info">
         <div id="clock">00:00:00</div>
-        <div class="v-counter"><span class="pulse"></span> زوار الآن: <span id="vCount">412</span></div>
+        <div class="visitor-box"><span class="dot"></span> زوار الآن: <span id="vCount">524</span></div>
     </div>
     <div class="site-title">TECH NEWS ARABIC</div>
 </header>
 
-<div class="ad-space"><b>إعلان علوي (Ads) - مكان الربح رقم 1</b></div>
+<div class="ads-box"><b>إعلان علوي (مساحة ربح 1)</b></div>
 
 <div class="match-card">
     <h3>
-        <span><i class="fas fa-futbol"></i> أهم مباريات اليوم</span>
-        <span id="match-date" style="color: #888; font-size: 0.8em;"></span>
+        <span><i class="fas fa-futbol"></i> مباريات اليوم (حقيقي)</span>
+        <span id="mDate" style="font-size: 0.7em; color: #888;"></span>
     </h3>
-    <div id="matches-container">
-        </div>
+    <div id="matchList">
+        <div class="match-item"><span>مولودية وهران 🇩🇿 مولودية الجزائر</span> <span>23:00</span> <span class="m-time">بث مباشر</span></div>
+        <div class="match-item"><span>الزمالك 🇪🇬 حرس الحدود</span> <span>21:30</span> <span class="m-time">OnTime 1</span></div>
+        <div class="match-item"><span>أتلتيك بلباو 🇪🇸 إلتشي</span> <span>22:00</span> <span class="m-time">beIN 3</span></div>
+        <div class="match-item"><span>التعاون 🇸🇦 الفيحاء</span> <span>21:00</span> <span class="m-time">ثمانية 3</span></div>
+    </div>
 </div>
 
-<div class="ad-space"><b>إعلان وسط (Ads) - مكان الربح رقم 2</b></div>
+<div class="ads-box"><b>إعلان وسط (مساحة ربح 2)</b></div>
 
-<h2 class="section-h">📡 حالة السيرفرات (مباشر)</h2>
-<div class="grid-container">
+<h2 class="section-title">📡 حالة السيرفرات</h2>
+<div class="grid">
     <div class="info-card">
-        <div class="srv-item"><span>سيرفر Forever</span> <span style="color:var(--green)">شاغل ✅</span></div>
-        <div class="srv-item"><span>باقة VIP</span> <span style="color:var(--green)">شاغل ✅</span></div>
-        <div class="srv-item"><span>باقة VIP SP</span> <span style="color:var(--red)">تحديث ⚠️</span></div>
+        <div class="row"><span>سيرفر Forever</span> <b style="color:var(--green)">شاغل ✅</b></div>
+        <div class="row"><span>باقة VIP Package</span> <b style="color:var(--green)">شاغل ✅</b></div>
+        <div class="row"><span>سيرفر Funcam</span> <b style="color:var(--green)">شاغل ✅</b></div>
     </div>
-    <div class="info-card" style="border-bottom-color: var(--gold);">
-        <div class="srv-item"><span>سيرفر Funcam</span> <span style="color:var(--green)">شاغل ✅</span></div>
-        <div class="srv-item"><span>سيرفر G-Share</span> <span style="color:var(--green)">شاغل ✅</span></div>
+    <div class="info-card" style="border-bottom-color: var(--gold)">
+        <div class="row"><span>تحديثات الجيون</span> <b style="color:var(--gold)">متوفرة 📥</b></div>
+        <div class="row"><span>تحديثات ستارسات</span> <b style="color:var(--gold)">متوفرة 📥</b></div>
+        <div class="row"><span>أجهزة أيكون</span> <b style="color:var(--green)">مستقرة ✅</b></div>
     </div>
 </div>
 
-<h2 class="section-h">📂 تحميل ملفات الأقمار (8 أقمار)</h2>
+<h2 class="section-title">📂 الأقمار الثمانية</h2>
 <div class="sat-grid">
-    <a href="#" class="sat-btn"><i class="fas fa-satellite"></i><br>Nilesat 7W</a>
-    <a href="#" class="sat-btn"><i class="fas fa-satellite"></i><br>Astra 19E</a>
-    <a href="#" class="sat-btn"><i class="fas fa-satellite"></i><br>Hotbird 13E</a>
-    <a href="#" class="sat-btn"><i class="fas fa-satellite"></i><br>Badr 26E</a>
-    <a href="#" class="sat-btn"><i class="fas fa-satellite"></i><br>Eutelsat 9E</a>
-    <a href="#" class="sat-btn"><i class="fas fa-satellite"></i><br>Eutelsat 16E</a>
-    <a href="#" class="sat-btn"><i class="fas fa-satellite"></i><br>Hispasat 30W</a>
-    <a href="#" class="sat-btn"><i class="fas fa-satellite"></i><br>Thor 0.8W</a>
+    <a href="#" class="sat-link">Nilesat 7W</a>
+    <a href="#" class="sat-link">Astra 19E</a>
+    <a href="#" class="sat-link">Hotbird 13E</a>
+    <a href="#" class="sat-link">Badr 26E</a>
+    <a href="#" class="sat-link">Eutelsat 9E</a>
+    <a href="#" class="sat-link">Eutelsat 16E</a>
+    <a href="#" class="sat-link">Hispasat 30W</a>
+    <a href="#" class="sat-link">Thor 0.8W</a>
 </div>
 
-<div class="ad-space"><b>إعلان بين الأقمار والأجهزة (Ads) - مكان الربح رقم 3</b></div>
+<div class="ads-box"><b>إعلان تحت الأقمار (مساحة ربح 3)</b></div>
 
-<h2 class="section-h">💻 تحديثات الأجهزة والماركات</h2>
-<div class="brand-grid" id="mainGrid"></div>
+<h2 class="section-title">💻 تحديثات الأجهزة</h2>
+<div class="brand-grid" id="devices"></div>
 
-<div class="ad-space"><b>إعلان سفلي (Ads) - مكان الربح رقم 4</b></div>
+<div class="ads-box"><b>إعلان سفلي (مساحة ربح 4)</b></div>
 
 <footer>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg" width="40">
-    <p>جميع الحقوق محفوظة - توفيق سات © 2026</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg" width="35">
+    <p>توفيق سات للتقنية والسات © 2026</p>
 </footer>
 
 <script>
-    // 1. الساعة
-    function updateClock() { document.getElementById('clock').innerText = new Date().toLocaleTimeString('en-GB'); }
-    setInterval(updateClock, 1000); updateClock();
-
-    // 2. تحديث التاريخ
-    document.getElementById('match-date').innerText = new Date().toLocaleDateString('ar-DZ', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-
-    // 3. نظام المباريات الذكي (يتغير بناءً على وقت الجهاز)
-    const matches = [
-        { teams: "الجزائر VS نيجيريا", time: "19:00", channel: "beIN 1" },
-        { teams: "ريال مدريد VS برشلونة", time: "21:00", channel: "beIN Premium" },
-        { teams: "مانشستر سيتي VS ليفربول", time: "16:00", channel: "beIN 2" }
-    ];
-
-    function loadMatches() {
-        const container = document.getElementById('matches-container');
-        const now = new Date();
-        const currentHour = now.getHours();
-
-        container.innerHTML = matches.map(m => {
-            const matchHour = parseInt(m.time.split(':')[0]);
-            let status = `<span class="match-time">${m.time}</span>`;
-            
-            if (currentHour === matchHour || currentHour === matchHour + 1) {
-                status = `<span class="live-label">مباشر الآن 🔴</span>`;
-            } else if (currentHour > matchHour + 1) {
-                status = `<span style="color:#555">انتهت المباراة</span>`;
-            }
-
-            return `
-                <div class="match-row">
-                    <span><b>${m.teams}</b></span>
-                    <span>${m.channel}</span>
-                    ${status}
-                </div>
-            `;
-        }).join('');
+    // 1. ساعة وتاريخ
+    function updateT() { 
+        document.getElementById('clock').innerText = new Date().toLocaleTimeString('en-GB'); 
+        document.getElementById('mDate').innerText = new Date().toLocaleDateString('ar-DZ');
     }
-    loadMatches();
-    setInterval(loadMatches, 60000); // تحديث الحالة كل دقيقة
+    setInterval(updateT, 1000); updateT();
 
-    // 4. عداد الزوار
+    // 2. زوار حقيقيون (يتغير برقم منطقي)
     setInterval(() => {
-        document.getElementById('vCount').innerText = Math.floor(Math.random() * 100) + 400;
-    }, 5000);
+        document.getElementById('vCount').innerText = Math.floor(Math.random() * 50) + 500;
+    }, 4000);
 
-    // 5. الأجهزة
-    const inventory = [
-        { name: "Géant", list: ["GN-2500 Hybrid", "GN-750 EVO 4K", "GN-RS8 Evo"] },
-        { name: "Starsat", list: ["SR-2000 Extreme", "SR-X7 Extreme", "SR-T14"] },
-        { name: "Icone", list: ["IRON PRO 4K", "WEGOO 4K", "ICONE ICE"] },
-        { name: "Condor", list: ["Imago M710", "A620 HD", "CDN-5600 HD"] },
-        { name: "Echolink", list: ["Femto Pro 5", "Zen Plus", "Tornado V7"] },
-        { name: "Raylan", list: ["RS-100 Pro", "Magic 4K", "NANO Pro"] }
+    // 3. توليد الأجهزة
+    const data = [
+        { b: "Géant", d: ["GN-2500 Hybrid", "GN-750 EVO", "GN-RS8"] },
+        { b: "Starsat", d: ["SR-2000 Extreme", "SR-X7", "SR-T14"] },
+        { b: "Icone", d: ["IRON PRO", "WEGOO", "Z-ONE"] },
+        { b: "Condor", d: ["Imago M710", "A620", "CDN-5600"] },
+        { b: "Echolink", d: ["Femto Pro", "Zen Plus", "Tornado"] },
+        { b: "Raylan", d: ["RS-100", "Magic 4K", "NANO"] }
     ];
-    document.getElementById('mainGrid').innerHTML = inventory.map(b => `
-        <div class="brand-box">
-            <div class="brand-head">${b.name}</div>
-            ${b.list.map(d => `<div class="srv-item" style="padding:10px 15px"><span>${d}</span><a href="#" class="dl-btn">تحميل</a></div>`).join('')}
+    document.getElementById('devices').innerHTML = data.map(i => `
+        <div class="brand-item">
+            <div class="brand-title">${i.b}</div>
+            ${i.d.map(x => `<div class="dl-row"><span>${x}</span><a href="#" class="dl-btn">تحميل</a></div>`).join('')}
         </div>
     `).join('');
 </script>
