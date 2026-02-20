@@ -3,270 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DZ RECEIVERS HUB 2026</title>
+    <title>TECH NEWS ARABIC - Toufik Sat</title>
     <style>
         :root {
-            --gold: #f39c12;
-            --dark: #0a0a0a;
-            --card: #161616;
-            --blue: #3498db;
+            --primary-color: #e67e22;
+            --dark-bg: #121212;
+            --card-bg: #1e272e;
+            --accent-color: #27ae60;
+            --text-white: #ffffff;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            background-color: var(--dark);
-            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-white);
             margin: 0;
-            overflow-x: hidden;
-        }
-
-        /* ساعة وشريط علوي */
-        .top-bar {
-            background: #000;
-            padding: 5px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--gold);
-            font-size: 0.9rem;
-        }
-
-        /* الشريط المتحرك */
-        .news-ticker {
-            background: var(--gold);
-            color: #000;
-            padding: 5px 0;
-            overflow: hidden;
-            white-space: nowrap;
-            font-weight: bold;
-        }
-        .news-ticker span {
-            display: inline-block;
-            padding-left: 100%;
-            animation: ticker 20s linear infinite;
-        }
-        @keyframes ticker {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-100%, 0); }
+            transition: all 0.3s ease;
         }
 
         header {
+            background-color: #000;
             padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #111;
+            border-bottom: 4px solid var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        /* شبكة الأجهزة */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 40px 5%;
+        .logo h2 {
+            color: var(--primary-color);
+            margin: 0;
+            letter-spacing: 1px;
         }
 
-        .brand-card {
-            background: var(--card);
-            border: 2px solid #333;
-            padding: 30px;
-            text-align: center;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .brand-card:hover {
-            border-color: var(--gold);
-            transform: scale(1.05);
-        }
-
-        /* النافذة المنبثقة (Modal) */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background: #222;
-            padding: 30px;
-            border-radius: 20px;
-            width: 80%;
-            max-width: 600px;
-            position: relative;
-            border: 1px solid var(--gold);
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 10px; right: 20px;
-            font-size: 30px; cursor: pointer; color: var(--gold);
-        }
-
-        .download-list { list-style: none; padding: 0; }
-        .download-list li {
-            background: #333;
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .btn-dl {
-            background: var(--gold);
-            color: black;
-            padding: 5px 15px;
-            text-decoration: none;
+        .lang-switcher select {
+            padding: 8px;
             border-radius: 5px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            cursor: pointer;
             font-weight: bold;
         }
 
-        /* أزرار التواصل والدفع */
-        .contact-section {
+        .container {
             padding: 40px 5%;
-            background: #111;
             text-align: center;
         }
-        .social-links a {
+
+        h1 { margin-bottom: 10px; }
+        .subtitle { color: #bdc3c7; margin-bottom: 40px; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #333;
+            transition: transform 0.3s, border-color 0.3s;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+        }
+
+        .card h3 { color: var(--primary-color); border-bottom: 1px solid #444; padding-bottom: 10px; }
+        
+        .device-list {
+            text-align: right;
+            list-style: none;
+            padding: 0;
+            font-size: 0.9em;
+            line-height: 1.8;
+        }
+
+        .device-list li::before {
+            content: "🔹";
+            margin-left: 10px;
+        }
+
+        /* قسم الأقمار الصناعية */
+        .sat-section {
+            margin-top: 60px;
+            background: #161616;
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        .sat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-download {
+            background: var(--accent-color);
             color: white;
-            margin: 0 15px;
+            padding: 12px;
             text-decoration: none;
-            font-size: 1.2rem;
-            padding: 10px 20px;
-            border: 1px solid var(--gold);
-            border-radius: 50px;
+            border-radius: 8px;
+            display: block;
+            font-size: 0.85em;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn-download:hover { background: #219150; }
+
+        footer {
+            margin-top: 50px;
+            padding: 30px;
+            background: #000;
+            font-size: 0.9em;
+            border-top: 1px solid #222;
         }
     </style>
 </head>
 <body>
 
-<div class="top-bar">
-    <div id="liveClock">00:00:00</div>
-    <div data-i18n="frontStatus">الجبهة الداخلية واعية 100%</div>
-    <select id="langSelect" style="background:none; color:white; border:1px solid var(--gold)">
-        <option value="ar">العربية</option>
-        <option value="fr">Français</option>
-        <option value="en">English</option>
-    </select>
-</div>
-
-<div class="news-ticker">
-    <span data-i18n="tickerText">جديد 2026: تحديثات سيرفر Apollo متوفرة الآن لجميع أجهزة Géant و Starsat .. ثبات كلي للقنوات المشفرة ..</span>
-</div>
-
 <header>
-    <h1 data-i18n="logo">RECEIVER DZ PRO</h1>
+    <div class="logo">
+        <h2>TECH NEWS ARABIC</h2>
+    </div>
+    <div class="lang-switcher">
+        <select id="languageSelector">
+            <option value="ar">العربية</option>
+            <option value="fr">Français</option>
+            <option value="en">English</option>
+        </select>
+    </div>
 </header>
 
-<div class="grid">
-    <div class="brand-card" onclick="openDevice('geant')">
-        <h2>Géant</h2>
-        <p data-i18n="clickMore">إضغط لعرض الموديلات</p>
-    </div>
-    <div class="brand-card" onclick="openDevice('starsat')">
-        <h2>Starsat</h2>
-        <p data-i18n="clickMore">إضغط لعرض الموديلات</p>
-    </div>
-    <div class="brand-card" onclick="openDevice('icone')">
-        <h2>Icone</h2>
-        <p data-i18n="clickMore">إضغط لعرض الموديلات</p>
-    </div>
-    <div class="brand-card" onclick="openDevice('raylan')">
-        <h2>Raylan</h2>
-        <p data-i18n="clickMore">إضغط لعرض الموديلات</p>
-    </div>
-</div>
+<div class="container">
+    <h1 data-i18n="mainTitle">بوابة Toufik Sat للتقنية</h1>
+    <p class="subtitle" data-i18n="subTitle">أحدث الموديلات والتحديثات لعام 2026 في السوق الجزائري</p>
 
-<div class="contact-section">
-    <h3 data-i18n="payment">طرق الدفع والتواصل</h3>
-    <div class="social-links">
-        <a href="#">WhatsApp</a>
-        <a href="#">Messenger</a>
-        <a href="#" style="background:var(--gold); color:black">BaridiMob</a>
-    </div>
-</div>
-
-<div id="deviceModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <h2 id="modalTitle">اسم الجهاز</h2>
-        <ul class="download-list" id="modalList">
+    <div class="grid">
+        <div class="card">
+            <h3>Géant</h3>
+            <ul class="device-list">
+                <li>OTT 750 EVO 4K</li>
+                <li>2500 EVO 4K</li>
+                <li>MAMO Plus</li>
+                <li>RS8 Mini HD Plus</li>
+                <li>GN-CX300 Mini Hybrid</li>
             </ul>
+        </div>
+        <div class="card">
+            <h3>Starsat</h3>
+            <ul class="device-list">
+                <li>SR-200HD 4K</li>
+                <li>SR-T14 Extreme</li>
+                <li>SR-4080 HD</li>
+                <li>SR-90000 Extreme</li>
+                <li>SR-2020 HD</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Icone</h3>
+            <ul class="device-list">
+                <li>ICONE IRON PRO 4K</li>
+                <li>ICONE WEGOO 4K</li>
+                <li>ICONE ICE</li>
+                <li>ICONE Z-ONE</li>
+                <li>ICONE i-4040</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Raylan</h3>
+            <ul class="device-list">
+                <li>Raylan RS-100 Pro</li>
+                <li>Raylan R-600 HD</li>
+                <li>Raylan Magic 4K</li>
+                <li>Raylan Nano Pro</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Condor</h3>
+            <ul class="device-list">
+                <li>Condor Imago M710 4K</li>
+                <li>Condor Open N300</li>
+                <li>Condor Play P200</li>
+                <li>Condor A620 HD</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Vision</h3>
+            <ul class="device-list">
+                <li>Vision Edge 4K</li>
+                <li>Vision Challenge</li>
+                <li>Vision Forever Pro</li>
+                <li>Vision Pocket</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="sat-section">
+        <h2 data-i18n="satTitle">تحميل ملفات الأقمار الصناعية (8 أقمار)</h2>
+        <div class="sat-grid">
+            <a href="#" class="btn-download">Nilesat 7W</a>
+            <a href="#" class="btn-download">Astra 19.2E</a>
+            <a href="#" class="btn-download">Hotbird 13E</a>
+            <a href="#" class="btn-download">Eutelsat 9E</a>
+            <a href="#" class="btn-download">Badr 26E</a>
+            <a href="#" class="btn-download">Hispasat 30W</a>
+            <a href="#" class="btn-download">Eutelsat 7W</a>
+            <a href="#" class="btn-download">Thor 0.8W</a>
+        </div>
     </div>
 </div>
+
+<footer data-i18n="footerText">
+    TECH NEWS ARABIC © 2026 - بوعي الجبهة الداخلية الجزائرية نحن أقوى
+</footer>
 
 <script>
-    // ساعة حية
-    function updateClock() {
-        const now = new Date();
-        document.getElementById('liveClock').innerText = now.toLocaleTimeString();
-    }
-    setInterval(updateClock, 1000);
-
-    // بيانات الأجهزة
-    const deviceData = {
-        geant: [
-            { name: "GN-OTT 750 EVO 4K", file: "Flash/V3.9.1" },
-            { name: "GN-2500 HD Hybrid", file: "Flash/V2.75" },
-            { name: "GN-M4 Mini", file: "Flash/V1.50" }
-        ],
-        starsat: [
-            { name: "SR-200HD Extreme", file: "Flash/V2.10" },
-            { name: "SR-220H4K", file: "Flash/V1.09" }
-        ],
-        icone: [
-            { name: "Iron Pro 4K", file: "Patch/Orca_2026" },
-            { name: "Wegoo", file: "Patch/V1.9.0" }
-        ],
-        raylan: [
-            { name: "Raylan RS-60", file: "Update/V1.12" }
-        ]
+    const translations = {
+        ar: {
+            mainTitle: "بوابة Toufik Sat للتقنية",
+            subTitle: "أحدث الموديلات والتحديثات لعام 2026 في السوق الجزائري",
+            satTitle: "تحميل ملفات الأقمار الصناعية (8 أقمار)",
+            footerText: "TECH NEWS ARABIC © 2026 - بوعي الجبهة الداخلية الجزائرية نحن أقوى"
+        },
+        en: {
+            mainTitle: "Toufik Sat Tech Portal",
+            subTitle: "Latest 2026 Models & Updates in the Algerian Market",
+            satTitle: "Download Satellite Channels (8 Sats)",
+            footerText: "TECH NEWS ARABIC © 2026 - Stronger with Algerian Internal Front Awareness"
+        },
+        fr: {
+            mainTitle: "Portail Toufik Sat Tech",
+            subTitle: "Derniers Modèles et Mises à Jour 2026 au Marché Algérien",
+            satTitle: "Télécharger Listes Satellites (8 Sats)",
+            footerText: "TECH NEWS ARABIC © 2026 - Plus forts avec la conscience du Front Intérieur Algérien"
+        }
     };
 
-    function openDevice(brand) {
-        const modal = document.getElementById('deviceModal');
-        const title = document.getElementById('modalTitle');
-        const list = document.getElementById('modalList');
-        
-        title.innerText = brand.toUpperCase();
-        list.innerHTML = "";
-        
-        deviceData[brand].forEach(item => {
-            list.innerHTML += `<li>
-                <span>${item.name}</span>
-                <a href="${item.file}" class="btn-dl" data-i18n="download">تحميل</a>
-            </li>`;
+    const selector = document.getElementById('languageSelector');
+    selector.addEventListener('change', (e) => setLanguage(e.target.value));
+
+    function setLanguage(lang) {
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            element.textContent = translations[lang][key];
         });
-        
-        modal.style.display = "flex";
+        document.body.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+        localStorage.setItem('preferredLang', lang);
     }
 
-    function closeModal() {
-        document.getElementById('deviceModal').style.display = "none";
-    }
-
-    // لغات الموقع
-    const langLib = {
-        ar: { tickerText: "جديد 2026: تحديثات سيرفر Apollo متوفرة الآن..", clickMore: "إضغط لعرض الموديلات", download: "تحميل", payment: "طرق الدفع والتواصل" },
-        fr: { tickerText: "Nouveauté 2026: Mises à jour Apollo disponibles..", clickMore: "Cliquez pour voir", download: "Télécharger", payment: "Paiement et Contact" },
-        en: { tickerText: "New 2026: Apollo Server updates available now..", clickMore: "Click to view models", download: "Download", payment: "Payment & Contact" }
-    };
-
-    document.getElementById('langSelect').addEventListener('change', (e) => {
-        const l = e.target.value;
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if(langLib[l][key]) el.innerText = langLib[l][key];
-        });
-        document.body.dir = (l === 'ar') ? 'rtl' : 'ltr';
-    });
+    const savedLang = localStorage.getItem('preferredLang') || 'ar';
+    selector.value = savedLang;
+    setLanguage(savedLang);
 </script>
 
 </body>
