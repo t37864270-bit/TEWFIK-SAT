@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TECH NEWS ARABIC - Toufik Sat DZ</title>
+    <title>TECH NEWS ARABIC - Toufik Sat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --primary-color: #e67e22;
-            --dark-bg: #0f1011;
-            --card-bg: #1c1e22;
+            --dark-bg: #0b0c0d;
+            --card-bg: #16181a;
             --update-green: #2ecc71;
             --update-red: #e74c3c;
             --text-white: #ffffff;
@@ -19,70 +20,70 @@
             background-color: var(--dark-bg);
             color: var(--text-white);
             margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* شريط الأنباء المتحرك */
+        .ticker-wrap {
+            width: 100%; overflow: hidden; background-color: #c0392b;
+            color: white; padding: 10px 0; font-weight: bold;
+        }
+        .ticker {
+            display: inline-block; white-space: nowrap; padding-right: 100%;
+            animation: ticker 30s linear infinite;
+        }
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
         }
 
         header {
-            background-color: #000;
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 4px solid var(--primary-color);
-            position: sticky; top: 0; z-index: 1000;
+            background-color: #000; padding: 15px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 4px solid #27ae60; position: sticky; top: 0; z-index: 1000;
         }
 
-        .lang-switcher select {
-            padding: 8px; border-radius: 5px; background: var(--primary-color);
-            color: white; border: none; cursor: pointer;
+        .header-left { display: flex; align-items: center; gap: 15px; }
+        .dz-flag { width: 40px; }
+
+        #digital-clock {
+            font-family: 'Courier New', Courier, monospace;
+            color: var(--primary-color); font-size: 1.2em; font-weight: bold;
         }
 
-        .container { padding: 40px 5%; text-align: center; }
+        .social-icons a {
+            color: white; margin: 0 10px; font-size: 1.5em; transition: 0.3s;
+        }
+        .social-icons a:hover { color: var(--primary-color); }
+
+        .container { padding: 30px 5%; text-align: center; }
 
         .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px; margin-top: 30px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px; margin-top: 30px;
         }
 
         .card {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid #333;
-            text-align: right;
+            background: var(--card-bg); padding: 15px; border-radius: 10px;
+            border: 1px solid #333; text-align: right;
         }
 
         .card h3 { 
-            color: var(--primary-color); 
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 10px;
-            text-align: center;
+            color: #27ae60; border-bottom: 2px solid #e67e22;
+            padding-bottom: 8px; text-align: center;
         }
 
-        .device-list { list-style: none; padding: 0; margin: 0; }
-        
         .device-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 8px 0;
-            border-bottom: 1px solid #2a2a2a;
-            font-size: 0.9em;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 8px 0; border-bottom: 1px solid #222; font-size: 0.85em;
         }
 
-        /* أيقونة التحديث */
-        .status-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-        .new-update { background-color: var(--update-green); box-shadow: 0 0 8px var(--update-green); }
-        .old-update { background-color: var(--update-red); }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .green { background: var(--update-green); box-shadow: 0 0 5px var(--update-green); }
+        .red { background: var(--update-red); }
 
-        .sat-section { margin-top: 50px; background: #000; padding: 30px; border-radius: 15px; }
         .sat-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
             gap: 10px; margin-top: 20px;
         }
         .btn-download {
@@ -90,93 +91,67 @@
             text-decoration: none; border-radius: 5px; font-size: 0.8em;
         }
 
-        footer { padding: 30px; background: #000; margin-top: 40px; border-top: 1px solid var(--primary-color); }
+        footer { padding: 30px; background: #000; text-align: center; border-top: 3px solid #27ae60; }
     </style>
 </head>
 <body>
 
+<div class="ticker-wrap">
+    <div class="ticker">
+        🔥 جديد Toufik Sat: تحديثات أجهزة Géant EVO متوفرة الآن .. ملف قنوات نيل سات مرتب لشهر فيفري 2026 .. عودة سيرفر Apollo للعمل بكفاءة على جميع الأجهزة .. تابعوا TECH NEWS ARABIC لكل جديد 🔥
+    </div>
+</div>
+
 <header>
+    <div class="header-left">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg" class="dz-flag" alt="Algeria">
+        <div id="digital-clock">00:00:00</div>
+    </div>
     <div class="logo"><h2>TECH NEWS ARABIC</h2></div>
-    <div class="lang-switcher">
-        <select id="languageSelector">
-            <option value="ar">العربية</option>
-            <option value="fr">Français</option>
-            <option value="en">English</option>
-        </select>
+    <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-telegram"></i></a>
     </div>
 </header>
 
 <div class="container">
-    <h1 data-i18n="mainTitle">Toufik Sat - دليلك التقني الأول</h1>
-    <p data-i18n="subTitle">متابعة حصرية لأكثر من 75 جهاز استقبال في الجزائر</p>
-
+    <h1>بوابة Toufik Sat - الجزائر 2026</h1>
+    
     <div class="grid">
         <div class="card">
             <h3>Géant</h3>
-            <div class="device-list" id="geant-list">
-                <div class="device-item"><span>2500 HD Hybrid</span><span class="status-dot new-update"></span></div>
-                <div class="device-item"><span>RS8 Evo</span><span class="status-dot new-update"></span></div>
-                <div class="device-item"><span>OTT 750 4K Allure</span><span class="status-dot old-update"></span></div>
-                <div class="device-item"><span>MAMO Plus</span><span class="status-dot new-update"></span></div>
-                <div class="device-item"><span>CX300 Mini Hybrid</span><span class="status-dot old-update"></span></div>
-                <div class="device-item"><span>2000 HD Hybrid</span><span class="status-dot new-update"></span></div>
-                <div class="device-item"><span>750 EVO 4K</span><span class="status-dot new-update"></span></div>
-                <div class="device-item"><span>X006/X007 HD</span><span class="status-dot old-update"></span></div>
-                <div class="device-item"><span>RS4 Mini HD</span><span class="status-dot old-update"></span></div>
-                <div class="device-item"><span>M4 Mini</span><span class="status-dot new-update"></span></div>
-                <div class="device-item"><span>GN-DX 6500</span><span class="status-dot old-update"></span></div>
-                <div class="device-item"><span>950 OTT</span><span class="status-dot old-update"></span></div>
-                <div class="device-item"><span>2500 PLUS</span><span class="status-dot old-update"></span></div>
-                <div class="device-item"><span>X3 PLUS</span><span class="status-dot new-update"></span></div>
-                <div class="device-item"><span>6700 HD</span><span class="status-dot old-update"></span></div>
-            </div>
+            <div id="geant-list"></div>
         </div>
 
         <div class="card">
             <h3>Starsat</h3>
-            <div class="device-list">
-                <div class="device-item"><span>SR-2000 Extreme</span><span class="status-dot new-update"></span></div>
-                <div class="device-item"><span>SR-T13 / T14</span><span class="status-dot new-update"></span></div>
-                <div class="device-item"><span>SR-4080 HD</span><span class="status-dot old-update"></span></div>
-                <div class="device-item"><span>SR-X1 Pro 4K</span><span class="status-dot new-update"></span></div>
-                <div class="device-item"><span>SR-200 HD 4K</span><span class="status-dot new-update"></span></div>
-                <div class="device-item"><span>SR-90000 Extreme</span><span class="status-dot old-update"></span></div>
-                <div class="device-item"><span>SR-7060 HD</span><span class="status-dot new-update"></span></div>
-                <div class="device-item"><span>SR-6969 HD</span><span class="status-dot old-update"></span></div>
-                <div class="device-item"><span>SR-2020 Super</span><span class="status-dot old-update"></span></div>
-                <div class="device-item"><span>SR-488 HD</span><span class="status-dot new-update"></span></div>
-                <div class="device-item"><span>SR-9990 HD</span><span class="status-dot old-update"></span></div>
-                <div class="device-item"><span>SR-2030 HD</span><span class="status-dot new-update"></span></div>
-                <div class="device-item"><span>SR-10000 HD</span><span class="status-dot old-update"></span></div>
-                <div class="device-item"><span>SR-X7 Extreme</span><span class="status-dot new-update"></span></div>
-                <div class="device-item"><span>SR-50W HD</span><span class="status-dot old-update"></span></div>
-            </div>
+            <div id="starsat-list"></div>
+        </div>
+
+        <div class="card">
+            <h3>Icone</h3>
+            <div id="icone-list"></div>
+        </div>
+
+        <div class="card">
+            <h3>Raylan</h3>
+            <div id="raylan-list"></div>
         </div>
 
         <div class="card">
             <h3>Echolink</h3>
-            <div class="device-list">
-                <div class="device-item"><span>Femto Pro 5</span><span class="status-dot new-update"></span></div>
-                <div class="device-item"><span>Zen Plus</span><span class="status-dot new-update"></span></div>
-                <div class="device-item"><span>Tornado V7 4K</span><span class="status-dot new-update"></span></div>
-                <div class="device-item"><span>OpenVu 7</span><span class="status-dot old-update"></span></div>
-                <div class="device-item"><span>Bravo Pro</span><span class="status-dot old-update"></span></div>
-                <div class="device-item"><span>Atomo 4K</span><span class="status-dot new-update"></span></div>
-                <div class="device-item"><span>S1+ Pro</span><span class="status-dot old-update"></span></div>
-                <div class="device-item"><span>Elit One</span><span class="status-dot new-update"></span></div>
-                <div class="device-item"><span>V9 Pro 2</span><span class="status-dot old-update"></span></div>
-                <div class="device-item"><span>Prime</span><span class="status-dot old-update"></span></div>
-                <div class="device-item"><span>Switch</span><span class="status-dot old-update"></span></div>
-                <div class="device-item"><span>Miracle V1</span><span class="status-dot old-update"></span></div>
-                <div class="device-item"><span>K7 4K</span><span class="status-dot new-update"></span></div>
-                <div class="device-item"><span>Mini 7</span><span class="status-dot old-update"></span></div>
-                <div class="device-item"><span>Genius</span><span class="status-dot old-update"></span></div>
-            </div>
+            <div id="echo-list"></div>
+        </div>
+
+        <div class="card">
+            <h3>Vision</h3>
+            <div id="vision-list"></div>
         </div>
     </div>
 
-    <div class="sat-section">
-        <h2 data-i18n="satTitle">ملفات الأقمار (المغرب العربي)</h2>
+    <div style="margin-top:50px; background:#000; padding:20px; border-radius:10px;">
+        <h3>تحميل ملفات الأقمار 8</h3>
         <div class="sat-grid">
             <a href="#" class="btn-download">Nilesat 7W</a>
             <a href="#" class="btn-download">Astra 19.2E</a>
@@ -190,40 +165,37 @@
     </div>
 </div>
 
-<footer data-i18n="footerText">
-    TECH NEWS ARABIC 2026 - بوعي الجبهة الداخلية الجزائرية نحن أقوى
+<footer>
+    <p>TECH NEWS ARABIC © 2026 - جميع الحقوق محفوظة لـ Toufik Sat</p>
 </footer>
 
 <script>
-    const translations = {
-        ar: {
-            mainTitle: "Toufik Sat - دليلك التقني الأول",
-            subTitle: "متابعة حصرية لأكثر من 75 جهاز استقبال في الجزائر",
-            satTitle: "ملفات الأقمار (المغرب العربي)",
-            footerText: "TECH NEWS ARABIC 2026 - بوعي الجبهة الداخلية الجزائرية نحن أقوى"
-        },
-        en: {
-            mainTitle: "Toufik Sat - Your Tech Guide",
-            subTitle: "Exclusive updates for 75+ devices in Algeria",
-            satTitle: "Satellite Files (Maghreb)",
-            footerText: "TECH NEWS ARABIC 2026 - Stronger with Internal Front Awareness"
-        },
-        fr: {
-            mainTitle: "Toufik Sat - Guide Tech",
-            subTitle: "Mise à jour pour plus de 75 démos en Algérie",
-            satTitle: "Fichiers Satellites (Maghreb)",
-            footerText: "TECH NEWS ARABIC 2026 - Conscience du Front Intérieur"
-        }
-    };
+    // تحديث الساعة
+    function updateClock() {
+        const now = new Date();
+        document.getElementById('digital-clock').innerText = now.toLocaleTimeString('en-GB');
+    }
+    setInterval(updateClock, 1000);
 
-    const selector = document.getElementById('languageSelector');
-    selector.addEventListener('change', (e) => {
-        const lang = e.target.value;
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            el.textContent = translations[lang][el.getAttribute('data-i18n')];
-        });
-        document.body.dir = (lang === 'ar') ? 'rtl' : 'ltr';
-    });
+    // دالة لتعبئة الأجهزة تلقائياً (15 جهاز لكل ماركة)
+    function fillDevices(elementId, brandName) {
+        const list = document.getElementById(elementId);
+        for(let i=1; i<=15; i++) {
+            const isNew = i % 2 === 0; // توزيع وهمي للأخضر والأحمر
+            list.innerHTML += `
+                <div class="device-item">
+                    <span>${brandName} Model-${i+100} Pro</span>
+                    <span class="dot ${isNew ? 'green' : 'red'}"></span>
+                </div>`;
+        }
+    }
+
+    fillDevices('geant-list', 'Géant');
+    fillDevices('starsat-list', 'Starsat');
+    fillDevices('icone-list', 'Icone');
+    fillDevices('raylan-list', 'Raylan');
+    fillDevices('echo-list', 'Echolink');
+    fillDevices('vision-list', 'Vision');
 </script>
 
 </body>
