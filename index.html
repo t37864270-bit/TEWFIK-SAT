@@ -3,154 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOUFIK SAT VIP | توفيق سات - تحديثات 2026</title>
+    <title>TOUFIK SAT PREMIUM | المنصة العربية الأولى</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --primary: #ff4500; --green: #2ecc71; --blue: #3498db; --bg: #0b0c0d; --card: #16181b; --gold: #f1c40f; --red: #ff0000; }
-        body { margin: 0; padding: 0; background: var(--bg); color: white; font-family: 'Segoe UI', Tahoma, sans-serif; direction: rtl; }
+        :root { --primary: #ff4500; --gold: #d4af37; --bg: #050505; --card: #121212; --green: #00ff88; --blue: #00d4ff; }
+        body { margin: 0; padding: 0; background: var(--bg); color: #e0e0e0; font-family: 'Segoe UI', Roboto, sans-serif; line-height: 1.6; }
 
-        /* شريط الأخبار العاجلة */
-        .ticker { background: #b30000; padding: 10px 0; border-bottom: 2px solid var(--gold); position: sticky; top: 0; z-index: 1000; overflow: hidden; }
-        .ticker-move { display: inline-block; white-space: nowrap; animation: move 30s linear infinite; font-weight: bold; }
+        /* شريط الأخبار */
+        .ticker { background: #800000; padding: 12px 0; border-bottom: 2px solid var(--gold); overflow: hidden; position: sticky; top: 0; z-index: 1000; }
+        .ticker-text { display: inline-block; white-space: nowrap; animation: move 35s linear infinite; font-weight: bold; color: #fff; }
         @keyframes move { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        /* الهيدر والعداد */
-        header { background: #000; padding: 20px 5%; text-align: center; border-bottom: 4px solid var(--green); }
-        .top-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-        #clock { color: var(--primary); font-size: 1.5em; font-weight: bold; }
-        .visitor-box { background: rgba(46, 204, 113, 0.1); border: 1px solid var(--green); padding: 5px 12px; border-radius: 20px; font-size: 0.85em; }
-        .dot { height: 8px; width: 8px; background: var(--green); border-radius: 50%; display: inline-block; margin-left: 5px; animation: blink 1s infinite; }
+        /* الهيدر */
+        header { background: linear-gradient(to bottom, #000, #111); padding: 30px 5%; text-align: center; border-bottom: 3px solid var(--primary); }
+        .site-logo { font-size: 3em; font-weight: 900; background: linear-gradient(45deg, #fff, var(--gold), var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; letter-spacing: 2px; }
+        .live-stats { display: flex; justify-content: space-around; margin-top: 15px; font-size: 0.9em; }
+        .pulse { color: var(--green); animation: blink 1.5s infinite; }
         @keyframes blink { 50% { opacity: 0.3; } }
-        .site-title { font-size: 2.5em; font-weight: 900; background: linear-gradient(45deg, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* مساحات الإعلانات (للربح) */
-        .ads-box { background: rgba(255,255,255,0.05); margin: 15px 5%; padding: 20px; border: 1px dashed #444; text-align: center; border-radius: 10px; color: #777; font-size: 0.9em; }
+        /* الأقسام العامة */
+        .container { padding: 20px 5%; }
+        .section-h { color: var(--gold); border-right: 5px solid var(--primary); padding-right: 15px; margin: 40px 0 20px; font-size: 1.8em; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        
+        .grid-premium { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card-premium { background: var(--card); border: 1px solid #222; border-radius: 15px; padding: 20px; transition: 0.4s; position: relative; overflow: hidden; }
+        .card-premium:hover { border-color: var(--primary); transform: translateY(-10px); box-shadow: 0 10px 20px rgba(255, 69, 0, 0.2); }
+        .card-premium i { font-size: 2.5em; color: var(--primary); margin-bottom: 15px; }
 
-        /* جدول المباريات الحقيقي */
-        .match-card { background: #1a1c1f; border-radius: 15px; padding: 20px; margin: 20px 5%; border: 1px solid #333; }
-        .match-card h3 { color: var(--gold); border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; }
-        .match-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #222; font-size: 0.95em; }
-        .m-time { color: var(--blue); font-weight: bold; }
-        .live-tag { background: var(--red); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75em; animation: flash 1s infinite; }
-        @keyframes flash { 50% { opacity: 0; } }
+        /* جدول الأسعار */
+        .price-table { width: 100%; border-collapse: collapse; background: #111; border-radius: 10px; overflow: hidden; margin-top: 10px; }
+        .price-table th { background: var(--primary); color: white; padding: 12px; font-size: 0.9em; }
+        .price-table td { padding: 12px; border-bottom: 1px solid #222; text-align: center; font-weight: bold; }
+        .price-up { color: var(--green); }
 
-        /* السيرفرات والأقمار */
-        .section-title { padding: 0 5%; color: var(--gold); border-right: 5px solid var(--primary); margin-top: 25px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 20px 5%; }
-        .info-card { background: var(--card); border-radius: 12px; padding: 15px; border-bottom: 3px solid var(--blue); }
-        .row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #222; }
+        /* روابط التحميل */
+        .dl-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px dashed #333; }
+        .btn-premium { background: linear-gradient(45deg, var(--primary), #b33000); color: white; padding: 6px 15px; border-radius: 20px; text-decoration: none; font-size: 0.8em; transition: 0.3s; }
+        .btn-premium:hover { letter-spacing: 1px; box-shadow: 0 0 10px var(--primary); }
 
-        .sat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; padding: 20px 5%; }
-        .sat-link { background: var(--card); padding: 15px 5px; border-radius: 8px; text-align: center; text-decoration: none; color: white; border: 1px solid #333; font-size: 0.85em; }
-        .sat-link:hover { background: var(--primary); }
+        /* مساحات الإعلانات */
+        .ad-banner { background: #0a0a0a; border: 1px dashed #444; margin: 30px 0; padding: 40px; text-align: center; color: #555; border-radius: 10px; }
 
-        /* الأجهزة */
-        .brand-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px 5%; }
-        .brand-item { background: var(--card); border-radius: 12px; border: 1px solid #333; overflow: hidden; }
-        .brand-title { background: #222; padding: 10px; text-align: center; color: var(--green); border-bottom: 2px solid var(--primary); }
-        .dl-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 15px; border-bottom: 1px solid #222; }
-        .dl-btn { background: var(--primary); color: white; padding: 4px 10px; border-radius: 5px; text-decoration: none; font-size: 0.8em; }
-
-        footer { background: #000; padding: 30px; text-align: center; border-top: 1px solid #222; margin-top: 20px; }
+        footer { background: #000; padding: 50px; text-align: center; border-top: 2px solid var(--primary); margin-top: 50px; }
     </style>
 </head>
 <body>
 
 <div class="ticker">
-    <div class="ticker-move">🔥 توفيق سات: الجبهة الداخلية الجزائرية واعية 100% .. مبروك عودة باقة VIP وثبات سيرفر Forever 1.45 .. ترقبوا تحديثات جيون وستارسات الليلة 🔥</div>
+    <div class="ticker-text">🔥 توفيق سات PREMIUM: الجبهة الداخلية الجزائرية واعية 100% .. تحديثات TV Box X96 متوفرة .. أسعار اشتراكات VIP اليوم في استقرار .. أهلاً بكم في المنصة الأولى عربياً 🔥</div>
 </div>
 
 <header>
-    <div class="top-info">
-        <div id="clock">00:00:00</div>
-        <div class="visitor-box"><span class="dot"></span> زوار الآن: <span id="vCount">524</span></div>
+    <div class="site-logo">TECH NEWS ARABIC</div>
+    <div class="live-stats">
+        <span><i class="fas fa-clock"></i> <span id="clock">00:00:00</span></span>
+        <span><i class="fas fa-users pulse"></i> متواجدون الآن: <span id="vCount">642</span></span>
     </div>
-    <div class="site-title">TECH NEWS ARABIC</div>
 </header>
 
-<div class="ads-box"><b>إعلان علوي (مساحة ربح 1)</b></div>
+<div class="container">
+    <div class="ad-banner">إعلان علوي مستهدف (High CPM Ads)</div>
 
-<div class="match-card">
-    <h3>
-        <span><i class="fas fa-futbol"></i> مباريات اليوم (حقيقي)</span>
-        <span id="mDate" style="font-size: 0.7em; color: #888;"></span>
-    </h3>
-    <div id="matchList">
-        <div class="match-item"><span>مولودية وهران 🇩🇿 مولودية الجزائر</span> <span>23:00</span> <span class="m-time">بث مباشر</span></div>
-        <div class="match-item"><span>الزمالك 🇪🇬 حرس الحدود</span> <span>21:30</span> <span class="m-time">OnTime 1</span></div>
-        <div class="match-item"><span>أتلتيك بلباو 🇪🇸 إلتشي</span> <span>22:00</span> <span class="m-time">beIN 3</span></div>
-        <div class="match-item"><span>التعاون 🇸🇦 الفيحاء</span> <span>21:00</span> <span class="m-time">ثمانية 3</span></div>
+    <h2 class="section-h"><i class="fas fa-tags"></i> أسعار الأجهزة والاشتراكات (سوق الجزائر)</h2>
+    <div class="grid-premium">
+        <div class="card-premium">
+            <table class="price-table">
+                <thead><tr><th>الجهاز / الاشتراك</th><th>السعر التقديري</th><th>الحالة</th></tr></thead>
+                <tbody>
+                    <tr><td>Géant 2500 Hybrid</td><td>14,500 DA</td><td class="price-up">مستقر</td></tr>
+                    <tr><td>اشتراك VIP (3 أشهر)</td><td>2,800 DA</td><td class="price-up">متاح</td></tr>
+                    <tr><td>X96 Max Plus (4/64)</td><td>8,500 DA</td><td class="price-up">مطلوب</td></tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
 
-<div class="ads-box"><b>إعلان وسط (مساحة ربح 2)</b></div>
-
-<h2 class="section-title">📡 حالة السيرفرات</h2>
-<div class="grid">
-    <div class="info-card">
-        <div class="row"><span>سيرفر Forever</span> <b style="color:var(--green)">شاغل ✅</b></div>
-        <div class="row"><span>باقة VIP Package</span> <b style="color:var(--green)">شاغل ✅</b></div>
-        <div class="row"><span>سيرفر Funcam</span> <b style="color:var(--green)">شاغل ✅</b></div>
+    <h2 class="section-h"><i class="fas fa-box-open"></i> قسم أجهزة Android TV Box</h2>
+    <div class="grid-premium">
+        <div class="card-premium">
+            <i class="fab fa-android"></i>
+            <h3>التحديثات والتطبيقات</h3>
+            <div class="dl-row"><span>X96 Max / Mini (Firmware)</span> <a href="#" class="btn-premium">تحميل</a></div>
+            <div class="dl-row"><span>Tanix TX6 / TX3</span> <a href="#" class="btn-premium">تحميل</a></div>
+            <div class="dl-row"><span>Xiaomi Mi Box S 4K</span> <a href="#" class="btn-premium">تحميل</a></div>
+            <div class="dl-row"><span>Mecool KM Series</span> <a href="#" class="btn-premium">تحميل</a></div>
+        </div>
+        
+        <div class="card-premium">
+            <i class="fas fa-tv"></i>
+            <h3>اشتراكات IPTV Premium</h3>
+            <div class="dl-row"><span>Lynx IPTV (Official APK)</span> <a href="#" class="btn-premium">تحميل</a></div>
+            <div class="dl-row"><span>Crystal OTT Pro</span> <a href="#" class="btn-premium">تحميل</a></div>
+            <div class="dl-row"><span>Matador IPTV</span> <a href="#" class="btn-premium">تحميل</a></div>
+        </div>
     </div>
-    <div class="info-card" style="border-bottom-color: var(--gold)">
-        <div class="row"><span>تحديثات الجيون</span> <b style="color:var(--gold)">متوفرة 📥</b></div>
-        <div class="row"><span>تحديثات ستارسات</span> <b style="color:var(--gold)">متوفرة 📥</b></div>
-        <div class="row"><span>أجهزة أيكون</span> <b style="color:var(--green)">مستقرة ✅</b></div>
+
+    <div class="ad-banner">إعلان وسط المحتوى (Native Ads)</div>
+
+    <h2 class="section-h"><i class="fas fa-laptop-code"></i> الشاشات والهواتف (فلاشات حصرية)</h2>
+    <div class="grid-premium">
+        <div class="card-premium">
+            <i class="fas fa-desktop"></i>
+            <h3>Smart TV Firmware</h3>
+            <div class="dl-row"><span>Stream System / Iris</span> <a href="#" class="btn-premium">تحميل</a></div>
+            <div class="dl-row"><span>Condor / Brandt</span> <a href="#" class="btn-premium">تحميل</a></div>
+        </div>
+        <div class="card-premium">
+            <i class="fas fa-mobile-alt"></i>
+            <h3>Mobile Software</h3>
+            <div class="dl-row"><span>Oppo / Samsung / Xiaomi</span> <a href="#" class="btn-premium">تحميل</a></div>
+        </div>
     </div>
+
+    <h2 class="section-h"><i class="fas fa-satellite-dish"></i> ملفات القنوات (8 أقمار)</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <a href="#" class="btn-premium" style="padding: 15px 25px;">Nilesat 7W</a>
+        <a href="#" class="btn-premium" style="padding: 15px 25px;">Astra 19E</a>
+        <a href="#" class="btn-premium" style="padding: 15px 25px;">Hotbird 13E</a>
+        <a href="#" class="btn-premium" style="padding: 15px 25px;">Hispasat 30W</a>
+        <a href="#" class="btn-premium" style="padding: 15px 25px;">Thor 0.8W</a>
+        <a href="#" class="btn-premium" style="padding: 15px 25px;">Eutelsat 16/9/21</a>
+    </div>
+
 </div>
-
-<h2 class="section-title">📂 الأقمار الثمانية</h2>
-<div class="sat-grid">
-    <a href="#" class="sat-link">Nilesat 7W</a>
-    <a href="#" class="sat-link">Astra 19E</a>
-    <a href="#" class="sat-link">Hotbird 13E</a>
-    <a href="#" class="sat-link">Badr 26E</a>
-    <a href="#" class="sat-link">Eutelsat 9E</a>
-    <a href="#" class="sat-link">Eutelsat 16E</a>
-    <a href="#" class="sat-link">Hispasat 30W</a>
-    <a href="#" class="sat-link">Thor 0.8W</a>
-</div>
-
-<div class="ads-box"><b>إعلان تحت الأقمار (مساحة ربح 3)</b></div>
-
-<h2 class="section-title">💻 تحديثات الأجهزة</h2>
-<div class="brand-grid" id="devices"></div>
-
-<div class="ads-box"><b>إعلان سفلي (مساحة ربح 4)</b></div>
 
 <footer>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg" width="35">
-    <p>توفيق سات للتقنية والسات © 2026</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg" width="50" style="margin-bottom: 20px;">
+    <p>توفيق سات PREMIUM © 2026 - الاحتراف له عنوان واحد</p>
 </footer>
 
 <script>
-    // 1. ساعة وتاريخ
-    function updateT() { 
-        document.getElementById('clock').innerText = new Date().toLocaleTimeString('en-GB'); 
-        document.getElementById('mDate').innerText = new Date().toLocaleDateString('ar-DZ');
+    function update() {
+        document.getElementById('clock').innerText = new Date().toLocaleTimeString('en-GB');
     }
-    setInterval(updateT, 1000); updateT();
+    setInterval(update, 1000); update();
 
-    // 2. زوار حقيقيون (يتغير برقم منطقي)
     setInterval(() => {
-        document.getElementById('vCount').innerText = Math.floor(Math.random() * 50) + 500;
-    }, 4000);
-
-    // 3. توليد الأجهزة
-    const data = [
-        { b: "Géant", d: ["GN-2500 Hybrid", "GN-750 EVO", "GN-RS8"] },
-        { b: "Starsat", d: ["SR-2000 Extreme", "SR-X7", "SR-T14"] },
-        { b: "Icone", d: ["IRON PRO", "WEGOO", "Z-ONE"] },
-        { b: "Condor", d: ["Imago M710", "A620", "CDN-5600"] },
-        { b: "Echolink", d: ["Femto Pro", "Zen Plus", "Tornado"] },
-        { b: "Raylan", d: ["RS-100", "Magic 4K", "NANO"] }
-    ];
-    document.getElementById('devices').innerHTML = data.map(i => `
-        <div class="brand-item">
-            <div class="brand-title">${i.b}</div>
-            ${i.d.map(x => `<div class="dl-row"><span>${x}</span><a href="#" class="dl-btn">تحميل</a></div>`).join('')}
-        </div>
-    `).join('');
+        document.getElementById('vCount').innerText = Math.floor(Math.random() * 100) + 700;
+    }, 5000);
 </script>
+
 </body>
 </html>
