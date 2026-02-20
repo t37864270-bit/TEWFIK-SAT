@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>TOUFIK SAT VIP | توفيق سات للتقنية</title>
+    <title>TOUFIK SAT VIP | توفيق سات - بث وتحديثات</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --primary: #ff4500; --green: #2ecc71; --blue: #3498db; --bg: #0b0c0d; --card: #16181b; --gold: #f1c40f; --red: #e74c3c; }
+        :root { --primary: #ff4500; --green: #2ecc71; --blue: #3498db; --bg: #0b0c0d; --card: #16181b; --gold: #f1c40f; --red: #ff0000; }
         html, body { max-width: 100%; overflow-x: hidden; margin: 0; padding: 0; background: var(--bg); color: white; font-family: 'Segoe UI', Tahoma, sans-serif; scroll-behavior: smooth; }
 
         /* شريط الأخبار */
@@ -14,7 +14,7 @@
         .ticker-inner { display: inline-block; white-space: nowrap; animation: ticker 40s linear infinite; font-weight: bold; }
         @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        /* الهيدر والعداد الحقيقي */
+        /* الهيدر */
         header { background: #000; padding: 25px 5%; text-align: center; border-bottom: 4px solid var(--green); }
         .top-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
         #clock { color: var(--primary); font-size: 1.8em; font-weight: bold; text-shadow: 0 0 10px var(--primary); }
@@ -23,39 +23,40 @@
         @keyframes p { 0% { opacity: 1; } 50% { opacity: 0.2; } 100% { opacity: 1; } }
         .site-title { font-size: 2.8em; font-weight: 900; background: linear-gradient(45deg, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* مساحات الربح (Ads) */
-        .ad-space { background: rgba(255,255,255,0.05); margin: 20px 5%; padding: 25px; border: 1px dashed #555; text-align: center; border-radius: 12px; color: #888; font-weight: bold; }
+        /* أماكن الإعلانات (الربح) */
+        .ad-space { background: rgba(255,255,255,0.05); margin: 20px 5%; padding: 25px; border: 1px dashed #555; text-align: center; border-radius: 12px; color: #888; }
 
-        /* الأقمار الثمانية */
+        /* جدول المباريات التلقائي */
+        .match-card { background: #1a1c1f; border-radius: 20px; padding: 20px; margin: 20px 5%; border: 1px solid #333; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .match-card h3 { color: var(--gold); border-bottom: 2px solid #333; padding-bottom: 10px; display: flex; justify-content: space-between; }
+        .match-row { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #222; }
+        .match-time { color: var(--blue); font-weight: bold; font-family: monospace; }
+        .live-label { background: var(--red); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.7em; animation: blinker 1s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+
+        /* السيرفرات والأقمار */
         .section-h { color: var(--gold); padding: 0 5%; margin-top: 30px; font-size: 1.6em; border-right: 6px solid var(--primary); }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px 5%; }
+        .info-card { background: var(--card); border-radius: 15px; padding: 20px; border-bottom: 4px solid var(--blue); }
+        .srv-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #222; }
+
         .sat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; padding: 20px 5%; }
         .sat-btn { background: var(--card); padding: 15px; border-radius: 10px; text-align: center; text-decoration: none; color: white; border: 1px solid #333; transition: 0.3s; }
         .sat-btn:hover { background: var(--primary); transform: translateY(-5px); }
 
-        /* قسم السيرفرات المتطور */
-        .server-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px 5%; }
-        .server-card { background: #1a1c1f; border-radius: 15px; padding: 20px; border-bottom: 4px solid var(--blue); }
-        .srv-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #222; }
-        .status-on { color: var(--green); font-weight: bold; }
-        .status-off { color: var(--red); font-weight: bold; }
-        .info-btn { background: #333; color: #ddd; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 0.8em; }
-
-        /* البحث والأجهزة */
-        .search-container { text-align: center; padding: 20px 5%; }
-        #srvSearch { width: 100%; max-width: 500px; padding: 12px; border-radius: 30px; border: 2px solid var(--primary); background: #000; color: white; outline: none; }
+        /* الأجهزة */
         .brand-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px 5%; }
         .brand-box { background: var(--card); border-radius: 15px; border: 1px solid #333; overflow: hidden; }
         .brand-head { background: #222; padding: 12px; text-align: center; color: var(--green); font-weight: bold; border-bottom: 2px solid var(--primary); }
-        .dev-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; border-bottom: 1px solid #222; }
-        .dl-btn { background: var(--primary); color: white; padding: 6px 14px; border-radius: 6px; text-decoration: none; font-size: 0.8em; font-weight: bold; }
+        .dl-btn { background: var(--primary); color: white; padding: 5px 12px; border-radius: 6px; text-decoration: none; font-size: 0.8em; }
 
-        footer { background: #000; padding: 50px; text-align: center; border-top: 1px solid #222; }
+        footer { background: #000; padding: 40px; text-align: center; border-top: 1px solid #222; }
     </style>
 </head>
 <body>
 
 <div class="news-ticker">
-    <div class="ticker-inner">🔥 توفيق سات: الجبهة الجزائرية واعية 100% .. عودة باقة VIP للعمل بثبات .. تحديثات Forever 1.45 متاحة الآن لجميع الماركات العالمية 🔥</div>
+    <div class="ticker-inner">🌍 توفيق سات: الجبهة الجزائرية واعية 100% .. جدول مباريات اليوم يتحدث تلقائياً .. تابع حالة السيرفرات والتحديثات أولاً بأول 🌍</div>
 </div>
 
 <header>
@@ -66,24 +67,31 @@
     <div class="site-title">TECH NEWS ARABIC</div>
 </header>
 
-<div class="ad-space">إعلان علوي (Ads 728x90) - الربح من هنا</div>
+<div class="ad-space"><b>إعلان علوي (Ads) - مكان الربح رقم 1</b></div>
 
-<h2 class="section-h">📡 حالة السيرفرات العالمية (تحديث لحظي)</h2>
-<div class="server-grid">
-    <div class="server-card">
-        <h3><i class="fas fa-server"></i> سيرفرات الفانيلا / فوريفر</h3>
-        <div class="srv-item"><span>سيرفر Forever 145</span> <span class="status-on">شاغل ✅</span> <button class="info-btn" onclick="alert('تاريخ العودة: 20 فبراير 2026\nالحالة: مستقر جداً على أسترا')">متى؟</button></div>
-        <div class="srv-item"><span>باقة VIP Package</span> <span class="status-on">شاغل ✅</span> <button class="info-btn" onclick="alert('تاريخ العودة: 19 فبراير\nملاحظة: تعمل بقوة على جميع الأقمار')">متى؟</button></div>
-        <div class="srv-item"><span>باقة VIP SP (البنفسجية)</span> <span class="status-off">متوقف ❌</span> <button class="info-btn" onclick="alert('توقف اليوم الساعة 14:00\nالسبب: تحديث عام من المصدر')">متى؟</button></div>
-    </div>
-    <div class="server-card">
-        <h3><i class="fas fa-network-wired"></i> سيرفرات Funcam / Gshare</h3>
-        <div class="srv-item"><span>سيرفر Funcam 135</span> <span class="status-on">شاغل ✅</span> <button class="info-btn" onclick="alert('الحالة: مستقر على قمر ثور ونايل سات')">متى؟</button></div>
-        <div class="srv-item"><span>سيرفر G-Share 3</span> <span class="status-off">صيانة ⚠️</span> <button class="info-btn" onclick="alert('بدأت الصيانة: 08:00 صباحاً\nالعودة المتوقعة: الليلة')">متى؟</button></div>
-    </div>
+<div class="match-card">
+    <h3>
+        <span><i class="fas fa-futbol"></i> أهم مباريات اليوم</span>
+        <span id="match-date" style="color: #888; font-size: 0.8em;"></span>
+    </h3>
+    <div id="matches-container">
+        </div>
 </div>
 
-<div class="ad-space">إعلان وسط (Ads Area) - مكان الربح من الزيارات</div>
+<div class="ad-space"><b>إعلان وسط (Ads) - مكان الربح رقم 2</b></div>
+
+<h2 class="section-h">📡 حالة السيرفرات (مباشر)</h2>
+<div class="grid-container">
+    <div class="info-card">
+        <div class="srv-item"><span>سيرفر Forever</span> <span style="color:var(--green)">شاغل ✅</span></div>
+        <div class="srv-item"><span>باقة VIP</span> <span style="color:var(--green)">شاغل ✅</span></div>
+        <div class="srv-item"><span>باقة VIP SP</span> <span style="color:var(--red)">تحديث ⚠️</span></div>
+    </div>
+    <div class="info-card" style="border-bottom-color: var(--gold);">
+        <div class="srv-item"><span>سيرفر Funcam</span> <span style="color:var(--green)">شاغل ✅</span></div>
+        <div class="srv-item"><span>سيرفر G-Share</span> <span style="color:var(--green)">شاغل ✅</span></div>
+    </div>
+</div>
 
 <h2 class="section-h">📂 تحميل ملفات الأقمار (8 أقمار)</h2>
 <div class="sat-grid">
@@ -97,37 +105,66 @@
     <a href="#" class="sat-btn"><i class="fas fa-satellite"></i><br>Thor 0.8W</a>
 </div>
 
-<div class="search-container">
-    <input type="text" id="srvSearch" onkeyup="doSearch()" placeholder="🔍 ابحث عن موديل جهازك (مثال: GN-2500)...">
-</div>
+<div class="ad-space"><b>إعلان بين الأقمار والأجهزة (Ads) - مكان الربح رقم 3</b></div>
 
+<h2 class="section-h">💻 تحديثات الأجهزة والماركات</h2>
 <div class="brand-grid" id="mainGrid"></div>
 
-<div class="ad-space">إعلان سفلي (Ads Area) - الربح من الموقع</div>
+<div class="ad-space"><b>إعلان سفلي (Ads) - مكان الربح رقم 4</b></div>
 
 <footer>
     <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg" width="40">
-    <p>توفيق سات للتقنية والسات © 2026</p>
+    <p>جميع الحقوق محفوظة - توفيق سات © 2026</p>
 </footer>
 
 <script>
+    // 1. الساعة
     function updateClock() { document.getElementById('clock').innerText = new Date().toLocaleTimeString('en-GB'); }
     setInterval(updateClock, 1000); updateClock();
 
-    function updateV() {
-        let c = Math.floor(Math.random() * 80) + 400;
-        document.getElementById('vCount').innerText = c;
-    }
-    setInterval(updateV, 5000);
+    // 2. تحديث التاريخ
+    document.getElementById('match-date').innerText = new Date().toLocaleDateString('ar-DZ', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
-    function doSearch() {
-        let input = document.getElementById('srvSearch').value.toLowerCase();
-        let boxes = document.getElementsByClassName('brand-box');
-        for (let b of boxes) {
-            b.style.display = b.innerText.toLowerCase().includes(input) ? "block" : "none";
-        }
-    }
+    // 3. نظام المباريات الذكي (يتغير بناءً على وقت الجهاز)
+    const matches = [
+        { teams: "الجزائر VS نيجيريا", time: "19:00", channel: "beIN 1" },
+        { teams: "ريال مدريد VS برشلونة", time: "21:00", channel: "beIN Premium" },
+        { teams: "مانشستر سيتي VS ليفربول", time: "16:00", channel: "beIN 2" }
+    ];
 
+    function loadMatches() {
+        const container = document.getElementById('matches-container');
+        const now = new Date();
+        const currentHour = now.getHours();
+
+        container.innerHTML = matches.map(m => {
+            const matchHour = parseInt(m.time.split(':')[0]);
+            let status = `<span class="match-time">${m.time}</span>`;
+            
+            if (currentHour === matchHour || currentHour === matchHour + 1) {
+                status = `<span class="live-label">مباشر الآن 🔴</span>`;
+            } else if (currentHour > matchHour + 1) {
+                status = `<span style="color:#555">انتهت المباراة</span>`;
+            }
+
+            return `
+                <div class="match-row">
+                    <span><b>${m.teams}</b></span>
+                    <span>${m.channel}</span>
+                    ${status}
+                </div>
+            `;
+        }).join('');
+    }
+    loadMatches();
+    setInterval(loadMatches, 60000); // تحديث الحالة كل دقيقة
+
+    // 4. عداد الزوار
+    setInterval(() => {
+        document.getElementById('vCount').innerText = Math.floor(Math.random() * 100) + 400;
+    }, 5000);
+
+    // 5. الأجهزة
     const inventory = [
         { name: "Géant", list: ["GN-2500 Hybrid", "GN-750 EVO 4K", "GN-RS8 Evo"] },
         { name: "Starsat", list: ["SR-2000 Extreme", "SR-X7 Extreme", "SR-T14"] },
@@ -136,11 +173,10 @@
         { name: "Echolink", list: ["Femto Pro 5", "Zen Plus", "Tornado V7"] },
         { name: "Raylan", list: ["RS-100 Pro", "Magic 4K", "NANO Pro"] }
     ];
-
     document.getElementById('mainGrid').innerHTML = inventory.map(b => `
         <div class="brand-box">
             <div class="brand-head">${b.name}</div>
-            ${b.list.map(d => `<div class="dev-row"><span><i class="fas fa-microchip" style="color:var(--green)"></i> ${d}</span><a href="#" class="dl-btn">تحميل</a></div>`).join('')}
+            ${b.list.map(d => `<div class="srv-item" style="padding:10px 15px"><span>${d}</span><a href="#" class="dl-btn">تحميل</a></div>`).join('')}
         </div>
     `).join('');
 </script>
